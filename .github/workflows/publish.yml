@@ -28,6 +28,4 @@ jobs:
         run: npm run check && npm run pack:dry
 
       - name: Publish to npm
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --provenance --access public
