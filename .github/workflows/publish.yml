@@ -1,25 +1,25 @@
 name: Publish npm
 
 on:
-  workflow_dispatch:
   push:
     tags:
       - "v*"
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
+          registry-url: https://registry.npmjs.org
 
       - name: Install dependencies
         run: npm install
@@ -27,19 +27,7 @@ jobs:
       - name: Verify package
         run: npm run check && npm run pack:dry
 
-      - name: Publish with npm trusted publishing (OIDC)
-        id: publish_oidc
-        continue-on-error: true
-        run: npm publish --provenance --access public
-
-      - name: Fallback publish with NPM_TOKEN
-        if: steps.publish_oidc.outcome == 'failure'
+      - name: Publish to npm
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          if [ -z "${NODE_AUTH_TOKEN}" ]; then
-            echo "Trusted publishing failed and NPM_TOKEN is not configured."
-            echo "Configure npm trusted publishing for this GitHub repository or add NPM_TOKEN secret."
-            exit 1
-          fi
-          npm publish --access public
