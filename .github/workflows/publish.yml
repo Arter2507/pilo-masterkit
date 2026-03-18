@@ -20,7 +20,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          registry-url: https://registry.npmjs.org
 
       - name: Install dependencies
         run: npm install
@@ -31,9 +30,7 @@ jobs:
       - name: Publish with npm trusted publishing (OIDC)
         id: publish_oidc
         continue-on-error: true
-        run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ""
+        run: npm publish --access public
 
       - name: Fallback publish with NPM_TOKEN
         if: steps.publish_oidc.outcome == 'failure'

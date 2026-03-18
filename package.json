@@ -10,6 +10,10 @@
     "type": "git",
     "url": "https://github.com/Arter2507/create-heyai-ruleset.git"
   },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "scripts": {
     "check": "node --check index.js",
     "pack:dry": "npm pack --dry-run",
