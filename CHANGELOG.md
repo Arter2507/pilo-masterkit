@@ -1,3 +1,11 @@
+# [1.2.0](https://github.com/Arter2507/create-heyai-ruleset/compare/v1.1.1...v1.2.0) (2026-03-18)
+
+
+### Features
+
+* transform repo into bilingual managed open-source with Apache-2.0 and separate security policy ([2a8849e](https://github.com/Arter2507/create-heyai-ruleset/commit/2a8849efb075c7e185a78e121543b734e2943ae1))
+* transform repo into managed open-source with Apache-2.0 ([9ebd9aa](https://github.com/Arter2507/create-heyai-ruleset/commit/9ebd9aa0ccbd22d2277576ea66295b266b2a6556))
+
 ## [1.1.1](https://github.com/Arter2507/create-heyai-ruleset/compare/v1.1.0...v1.1.1) (2026-03-18)
 
 
