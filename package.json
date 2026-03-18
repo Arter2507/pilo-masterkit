@@ -2,32 +2,26 @@
   "name": "create-heyai-ruleset",
   "version": "0.1.12",
   "description": "Scaffold and install HEYAI ruleset into a project.",
-  "bin": {
-    "create-heyai-ruleset": "index.js"
-  },
-  "type": "commonjs",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Arter2507/create-heyai-ruleset.git"
-  },
-  "publishConfig": {
-    "access": "public",
-    "provenance": true
-  },
-  "scripts": {
-    "check": "node --check index.js",
-    "pack:dry": "npm pack --dry-run",
-    "release:check": "node scripts/release-check.js"
-  },
   "keywords": [
     "create",
     "cli",
     "ruleset",
     "agent"
   ],
+  "homepage": "https://github.com/Arter2507/create-heyai-ruleset#readme",
+  "bugs": {
+    "url": "https://github.com/Arter2507/create-heyai-ruleset/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arter2507/create-heyai-ruleset.git"
+  },
   "license": "MIT",
-  "engines": {
-    "node": ">=18.0.0"
+  "author": "Arter",
+  "type": "commonjs",
+  "main": "index.js",
+  "bin": {
+    "create-heyai-ruleset": "index.js"
   },
   "files": [
     "index.js",
@@ -45,5 +39,17 @@
     "SYSTEM_DESIGN.md",
     "TESTING_POLICY.md",
     "WORKFLOWS.md"
-  ]
+  ],
+  "scripts": {
+    "check": "node --check index.js",
+    "pack:dry": "npm pack --dry-run",
+    "release:check": "node scripts/release-check.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
 }
