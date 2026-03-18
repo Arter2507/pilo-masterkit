@@ -89,4 +89,17 @@ AI sẽ nạp các file trong `.heyai-ruleset/` theo thứ tự ưu tiên từ c
 
 ---
 
+## 🤝 Cộng đồng & Góp ý / Community & Contributing
+
+Dự án này là mã nguồn mở và chúng tôi rất trân trọng mọi sự đóng góp từ cộng đồng. 
+(This project is open-source and we welcome all contributions.)
+
+- **[Hướng dẫn góp ý / Contributing Guide](CONTRIBUTING.md)**
+- **[Quy tắc ứng xử / Code of Conduct](CODE_OF_CONDUCT.md)**
+- **[Tài liệu chi tiết / Detailed Docs](docs/ARCHITECTURE.md)**
+- **[Báo cáo bảo mật / Security Policy](SECURITY.md)**
+- **[Giấy phép / License](LICENSE)**
+
+---
+
 > **"Orchestrating the technology of the future with discipline and soul."**

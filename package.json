@@ -16,7 +16,7 @@
     "type": "git",
     "url": "git+https://github.com/Arter2507/create-heyai-ruleset.git"
   },
-  "license": "MIT",
+  "license": "Apache-2.0",
   "author": "Arter",
   "type": "commonjs",
   "main": "index.js",
