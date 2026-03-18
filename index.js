@@ -434,6 +434,9 @@ agent_name: "${resolvedName}"
 activation_greetings:
   - "Hey, AI"
   - "Hey, ${resolvedName}"
+language_policy:
+  mode: "user_primary_language"
+  fallback: "ask_user_to_choose_language"
 project_root: "${projectRoot.replace(/\\/g, "/")}"
 rules_root: "${rulesDirName}"
 rule_priority:
@@ -449,6 +452,10 @@ rule_priority:
 # HEYAI Agent Configuration
 
 Use this file as the single source of truth for agent identity and rule-loading order.
+
+Language behavior:
+- Detect and use the user's primary language for all responses after trigger.
+- If language is unclear or mixed, ask the user to choose language first.
 
 When a conversation starts with "Hey, AI" or "Hey, ${resolvedName}", load rules from \`${rulesDirName}\` in this priority:
 1. \`${rulesDirName}/MAP.md\`
@@ -471,6 +478,7 @@ function buildRootAgentsBridgeContent(
     "# HEYAI Rule Bridge",
     "",
     'When user message starts with "Hey, AI" or "Hey, ' + resolvedName + '":',
+    "0. Detect user's primary language and respond in that language (`choose language` if unclear).",
     `1. Load \`${rulesDirName}/MAP.md\`.`,
     `2. Load \`${rulesDirName}/IDENTITY_SOUL.md\`.`,
     `3. Load \`${rulesDirName}/PROTOCOLS.md\`.`,

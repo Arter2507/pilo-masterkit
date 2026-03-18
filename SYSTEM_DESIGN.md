@@ -1,5 +1,10 @@
 # 🏗️ SYSTEM DESIGN & AESTHETICS
 
+## 🌐 Language / Ngôn ngữ
+- `VI`: Nội dung chuẩn mô tả kiến trúc và thẩm mỹ.
+- `EN`: AI must preserve equivalent English meaning when applying design/system rules.
+- Trigger mode: with `Hey, AI`, responses should follow the user's primary language choice.
+
 Tài liệu này quy định kiến trúc kỹ thuật, tiêu chuẩn thiết kế và các công cụ mặc định cho dự án.
 
 ---

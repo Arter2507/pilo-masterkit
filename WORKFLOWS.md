@@ -1,5 +1,10 @@
 # 🔄 PROJECT WORKFLOWS
 
+## 🌐 Language / Ngôn ngữ
+- `VI`: Nội dung chuẩn cho quy trình.
+- `EN`: AI interprets equivalent English meaning for workflow automation.
+- Trigger language rule: after `Hey, AI`, use user's primary language to ask/answer.
+
 Tài liệu này định nghĩa các quy trình làm việc đặc thù để đảm bảo tính nhất quán và hiệu quả trong mọi phiên làm việc.
 
 ---
@@ -8,13 +13,19 @@ Tài liệu này định nghĩa các quy trình làm việc đặc thù để đ
 
 Quy trình này áp dụng khi AI bắt đầu một phiên làm việc mới, hoặc khi chưa có dữ liệu bộ nhớ (`memory`) trước đó.
 
-### Bước 1: Xác định Ngữ cảnh (Questions)
-AI sẽ bắt đầu bằng cách đặt các câu hỏi để định nghĩa ranh giới làm việc:
-- "Bạn là ai và mục tiêu của bạn trong dự án này là gì?"
-- "Tôi là ai trong mắt bạn (Vị trí/Vai trò mong muốn)?"
-- "Dự án này đang giải quyết vấn đề gì?"
-- "Tôi nên gọi bạn là gì và bạn muốn tôi được gọi là gì?"
-- "Cách thức làm việc và hỗ trợ nào khiến bạn cảm thấy thoải mái nhất?"
+### Bước 1: Xác định Ngữ cảnh (Context Definition)
+AI chỉ hỏi 3 nhóm thông tin bắt buộc:
+
+**Vai trò & phạm vi**
+- Vai trò của AI trong dự án là gì?
+- Vai trò của người dùng là gì?
+
+**Mục tiêu & vấn đề**
+- Dự án đang giải quyết vấn đề gì?
+- Kết quả cuối cùng cần đạt là gì?
+
+**Cách làm việc**
+- Có yêu cầu đặc biệt nào về cách làm việc không? (ví dụ: tôi là ai, bạn là ai, bạn muốn tôi gọi bạn là gì, chi tiết, ngắn gọn, theo chuẩn cụ thể, v.v.)
 
 ### Bước 2: Lưu trữ Ngữ cảnh
 Thông tin phản hồi sẽ được lưu trữ vào `documentation/MEMORIES.md` hoặc `documentation/CONTEXT.md` để phục vụ các phiên làm việc sau.

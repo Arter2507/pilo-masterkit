@@ -1,5 +1,10 @@
 # 🗺️ Project Navigation Hub
 
+## 🌐 Language / Ngôn ngữ
+- `VI`: Tài liệu giữ tiếng Việt làm nội dung chính.
+- `EN`: English mirror interpretation is required when AI reasons over this file.
+- Trigger policy: On `Hey, AI`, AI answers in the user's primary language (choose language if ambiguous).
+
 Chào mừng bạn đến với trung tâm điều hướng của dự án. Tài liệu này cung cấp cái nhìn tổng quan về cấu trúc hệ thống, quy chuẩn kỹ thuật và triết lý vận hành.
 
 ---

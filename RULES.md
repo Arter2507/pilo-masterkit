@@ -1,5 +1,10 @@
 # 📜 PROJECT RULES & CONVENTIONS (AntiGravity IDE)
 
+## 🌐 Language / Ngôn ngữ
+- `VI`: Quy tắc chính bằng tiếng Việt.
+- `EN`: AI must keep an English-equivalent interpretation for every mandatory rule.
+- Trigger policy: for `Hey, AI`, AI replies in the user's primary language.
+
 > **MANDATORY FOR ALL AGENTS:** Tất cả các Agent làm việc### Bước 1: Xác định Ngữ cảnh (Questions)
 AI sẽ bắt đầu bằng cách đặt các câu hỏi để định nghĩa ranh giới làm việc:
 quán, bảo mật và hiệu quả token.

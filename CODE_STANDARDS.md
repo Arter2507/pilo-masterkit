@@ -1,5 +1,10 @@
 # 💻 CODE STANDARDS (Quy chuẩn Mã nguồn)
 
+## 🌐 Language / Ngôn ngữ
+- `VI`: Mô tả quy chuẩn bằng tiếng Việt.
+- `EN`: AI keeps English-equivalent interpretation to implement code consistently.
+- Trigger language behavior: on `Hey, AI`, AI responds in the user's primary language.
+
 Tài liệu này quy định các tiêu chuẩn viết mã, cấu trúc thư mục và các mẫu thiết kế (Patterns) bắt buộc cho dự án.
 
 ---

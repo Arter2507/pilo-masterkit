@@ -1,5 +1,10 @@
 # 📜 MANDATORY AI PROTOCOLS (Giao thức AI Bắt buộc)
 
+## 🌐 Language / Ngôn ngữ
+- `VI`: Nội dung vận hành gốc.
+- `EN`: English equivalent interpretation is mandatory for all protocol decisions.
+- Trigger language mode: after `Hey, AI`, AI responds in the user's primary language (`choose language` when unclear).
+
 Tài liệu này định nghĩa các quy tắc vận hành bất biến mà mọi AI Agent PHẢI tuân thủ tuyệt đối khi làm việc trong hệ thống này. Xem chi tiết quy trình cụ thể tại [WORKFLOWS.md](WORKFLOWS.md).
 
 ---
