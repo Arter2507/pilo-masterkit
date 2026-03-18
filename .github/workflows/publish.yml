@@ -1,25 +1,27 @@
 name: Publish npm
-
 on:
   push:
+    branches:
+      - main
+      - next
     tags:
       - "v*"
   workflow_dispatch:
 
 permissions:
   id-token: write
-  contents: read
+  contents: write
+  issues: write
+  pull-requests: write
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-          registry-url: https://npm.pkg.github.com
+          node-version: "lts/*"
 
       - name: Install dependencies
         run: npm install
@@ -27,7 +29,8 @@ jobs:
       - name: Verify package
         run: npm run check && npm run pack:dry
 
-      - name: Publish to GitHub Packages
-        run: npm publish
+      - name: Release and Publish
+        run: npx semantic-release
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
