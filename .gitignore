@@ -42,3 +42,4 @@ yarn-error.log*
 # Project specific
 install-report.md
 create-heyai-ruleset-*.tgz
+session_memory.md
