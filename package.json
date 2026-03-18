@@ -1,6 +1,6 @@
 {
-  "name": "create-heyai-ruleset",
-  "version": "0.1.14",
+  "name": "@heyai-rules/create-heyai-ruleset",
+  "version": "1.0.0",
   "description": "Scaffold and install HEYAI ruleset into a project.",
   "keywords": [
     "create",
@@ -49,7 +49,7 @@
     "node": ">=18.0.0"
   },
   "publishConfig": {
-    "access": "public",
-    "provenance": true
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
   }
 }
