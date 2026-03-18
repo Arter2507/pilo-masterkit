@@ -42,9 +42,12 @@ Thông tin trong file:
   - `Hey, <AgentName>`
 - Thứ tự nạp rule ưu tiên trong `.heyai-ruleset`:
   - `MAP.md`
-  - `PROTOCOL.md` / `PROTOCOLS.md`
+  - `IDENTITY_SOUL.md`
+  - `PROTOCOLS.md`
   - `RULES.md`
   - `WORKFLOWS.md`
+  - `CODE_STANDARDS.md`
+  - `SYSTEM_DESIGN.md`
 
 ## Cài đặt từ source
 

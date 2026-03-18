@@ -21,7 +21,7 @@ const RULE_FILES = [
   "SECURITY.md",
   "SYSTEM_DESIGN.md",
   "TESTING_POLICY.md",
-  "WORKFLOWS.md"
+  "WORKFLOWS.md",
 ];
 
 function logInfo(message) {
@@ -53,7 +53,7 @@ function parseArgs(argv) {
     agentName: "",
     agentConfigPath: "",
     overwriteAgentConfig: false,
-    help: false
+    help: false,
   };
 
   const positional = [];
@@ -160,7 +160,7 @@ function printUsage() {
     "  --agent-name <name>           Agent name (default: AI)",
     "  --agent-config-path <path>    Optional explicit path (must be project-root/HEYAI.agent.md)",
     "  --overwrite-agent-config      Overwrite agent config file if exists",
-    "  -h, --help                    Show help"
+    "  -h, --help                    Show help",
   ];
   stdout.write(`${message.join("\n")}\n`);
 }
@@ -175,7 +175,7 @@ function readTextIfExists(filePath) {
 
 function extractDefaultKits(systemDesignText) {
   const sectionMatch = systemDesignText.match(
-    /##\s+🛠️\s+3\.\s+DEFAULT KITS & SKILLS([\s\S]*?)(?:\n##\s|\n---|$)/i
+    /##\s+🛠️\s+3\.\s+DEFAULT KITS & SKILLS([\s\S]*?)(?:\n##\s|\n---|$)/i,
   );
   if (!sectionMatch) {
     return [];
@@ -205,7 +205,7 @@ function extractDefaultKits(systemDesignText) {
       kits.push({
         title: `${title} - ${link.label}`,
         links: [link],
-        raw: line
+        raw: line,
       });
     }
   }
@@ -213,24 +213,26 @@ function extractDefaultKits(systemDesignText) {
 }
 
 function extractModeDefaults(systemDesignText) {
-  const lightRegex = /^\|\s*\*\*Lightmode\*\*\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|/im;
-  const darkRegex = /^\|\s*\*\*Darkmode\*\*\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|/im;
+  const lightRegex =
+    /^\|\s*\*\*Lightmode\*\*\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|/im;
+  const darkRegex =
+    /^\|\s*\*\*Darkmode\*\*\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|/im;
   const lightMatch = systemDesignText.match(lightRegex);
   const darkMatch = systemDesignText.match(darkRegex);
   return {
     light: {
       color: lightMatch ? lightMatch[1].trim() : "",
-      theme: lightMatch ? lightMatch[2].trim() : ""
+      theme: lightMatch ? lightMatch[2].trim() : "",
     },
     dark: {
       color: darkMatch ? darkMatch[1].trim() : "",
-      theme: darkMatch ? darkMatch[2].trim() : ""
-    }
+      theme: darkMatch ? darkMatch[2].trim() : "",
+    },
   };
 }
 
 const KIT_INSTALL_COMMANDS = {
-  "Dokhacgiakhoa/antigravity-ide": "npx antigravity-ide@latest"
+  "Dokhacgiakhoa/antigravity-ide": "npx antigravity-ide@latest",
 };
 
 function extractRepoSlug(url) {
@@ -254,7 +256,7 @@ async function inferInstallCommandFromReadme(url) {
   const candidates = [
     `https://raw.githubusercontent.com/${slug}/HEAD/README.md`,
     `https://raw.githubusercontent.com/${slug}/main/README.md`,
-    `https://raw.githubusercontent.com/${slug}/master/README.md`
+    `https://raw.githubusercontent.com/${slug}/master/README.md`,
   ];
 
   for (const candidate of candidates) {
@@ -270,7 +272,7 @@ async function inferInstallCommandFromReadme(url) {
           /^npx\s+/i.test(line) ||
           /^pnpm\s+dlx\s+/i.test(line) ||
           /^pnpm\s+create\s+/i.test(line) ||
-          /^npm\s+create\s+/i.test(line)
+          /^npm\s+create\s+/i.test(line),
       );
       if (command) {
         return command;
@@ -287,7 +289,7 @@ function runCommand(command, cwd) {
   return spawnSync(command, {
     cwd,
     shell: true,
-    encoding: "utf8"
+    encoding: "utf8",
   });
 }
 
@@ -315,11 +317,11 @@ function parseCommaNumbers(input) {
 function replaceModeRow(systemDesignText, mode, color, theme) {
   const rowRegex = new RegExp(
     `^\\|\\s*\\*\\*${mode}\\*\\*\\s*\\|\\s*([^|]+?)\\s*\\|\\s*([^|]+?)\\s*\\|`,
-    "im"
+    "im",
   );
   return systemDesignText.replace(
     rowRegex,
-    `| **${mode}** | ${color} | ${theme} |`
+    `| **${mode}** | ${color} | ${theme} |`,
   );
 }
 
@@ -366,7 +368,7 @@ function getKitInstallTargets(selectedKitIndexes, kits) {
     for (const link of kit.links) {
       urls.push({
         source: kit.title,
-        url: link.url
+        url: link.url,
       });
     }
   }
@@ -376,7 +378,7 @@ function getKitInstallTargets(selectedKitIndexes, kits) {
 function buildAgentConfigContent({
   agentName,
   projectRoot,
-  rulesDirName = HIDDEN_RULES_DIR
+  rulesDirName = HIDDEN_RULES_DIR,
 }) {
   const resolvedName = agentName && agentName.trim() ? agentName.trim() : "AI";
   return `---
@@ -388,11 +390,12 @@ project_root: "${projectRoot.replace(/\\/g, "/")}"
 rules_root: "${rulesDirName}"
 rule_priority:
   - "MAP.md"
-  - "PROTOCOL.md"
+  - "IDENTITY_SOUL.md"
   - "PROTOCOLS.md"
   - "RULES.md"
   - "WORKFLOWS.md"
   - "CODE_STANDARDS.md"
+  - "SYSTEM_DESIGN.md"
 ---
 
 # HEYAI Agent Configuration
@@ -401,15 +404,19 @@ Use this file as the single source of truth for agent identity and rule-loading 
 
 When a conversation starts with "Hey, AI" or "Hey, ${resolvedName}", load rules from \`${rulesDirName}\` in this priority:
 1. \`${rulesDirName}/MAP.md\`
-2. \`${rulesDirName}/PROTOCOL.md\` (if exists)
-3. \`${rulesDirName}/PROTOCOLS.md\` (fallback)
+2. \`${rulesDirName}/IDENTITY_SOUL.md\`
+3. \`${rulesDirName}/PROTOCOLS.md\`
 4. \`${rulesDirName}/RULES.md\`
-5. \`${rulesDirName}/WORKFLOWS.md\` (if exists)
-6. \`${rulesDirName}/CODE_STANDARDS.md\` (if exists)
+5. \`${rulesDirName}/WORKFLOWS.md\`
+6. \`${rulesDirName}/CODE_STANDARDS.md\`
+7. \`${rulesDirName}/SYSTEM_DESIGN.md\`
 `;
 }
 
-function buildRootAgentsBridgeContent(agentName, rulesDirName = HIDDEN_RULES_DIR) {
+function buildRootAgentsBridgeContent(
+  agentName,
+  rulesDirName = HIDDEN_RULES_DIR,
+) {
   const resolvedName = agentName && agentName.trim() ? agentName.trim() : "AI";
   return [
     "<!-- HEYAI-RULE-BRIDGE:START -->",
@@ -417,12 +424,15 @@ function buildRootAgentsBridgeContent(agentName, rulesDirName = HIDDEN_RULES_DIR
     "",
     'When user message starts with "Hey, AI" or "Hey, ' + resolvedName + '":',
     `1. Load \`${rulesDirName}/MAP.md\`.`,
-    `2. Load \`${rulesDirName}/PROTOCOLS.md\` (and \`${rulesDirName}/PROTOCOL.md\` if exists).`,
-    `3. Load \`${rulesDirName}/RULES.md\`.`,
-    `4. Load \`${rulesDirName}/WORKFLOWS.md\`.`,
-    "5. Reply by strictly following those rules and workflows.",
+    `2. Load \`${rulesDirName}/IDENTITY_SOUL.md\`.`,
+    `3. Load \`${rulesDirName}/PROTOCOLS.md\`.`,
+    `4. Load \`${rulesDirName}/RULES.md\`.`,
+    `5. Load \`${rulesDirName}/WORKFLOWS.md\`.`,
+    `6. Load \`${rulesDirName}/CODE_STANDARDS.md\`.`,
+    `7. Load \`${rulesDirName}/SYSTEM_DESIGN.md\`.`,
+    "8. Reply by strictly following those rules and workflows.",
     "",
-    "<!-- HEYAI-RULE-BRIDGE:END -->"
+    "<!-- HEYAI-RULE-BRIDGE:END -->",
   ].join("\n");
 }
 
@@ -452,7 +462,9 @@ async function promptYesNo(rl, label, defaultYes = true) {
     return defaultYes;
   }
   const hint = defaultYes ? "Y/n" : "y/N";
-  const answer = (await rl.question(`${label} (${hint}): `)).trim().toLowerCase();
+  const answer = (await rl.question(`${label} (${hint}): `))
+    .trim()
+    .toLowerCase();
   if (!answer) {
     return defaultYes;
   }
@@ -464,7 +476,7 @@ function parseKitIndexes(kits, input) {
   if (chosen.includes(0)) {
     return {
       selectedKitIndexes: [],
-      includeCustom: false
+      includeCustom: false,
     };
   }
 
@@ -477,7 +489,7 @@ function parseKitIndexes(kits, input) {
 
   return {
     selectedKitIndexes: [...new Set(selectedKitIndexes)],
-    includeCustom: chosen.includes(kits.length + 1)
+    includeCustom: chosen.includes(kits.length + 1),
   };
 }
 
@@ -485,7 +497,7 @@ async function promptKitSelection(rl, kits, args, interactiveMode) {
   if (args.noKits) {
     return {
       selectedKitIndexes: [],
-      includeCustom: false
+      includeCustom: false,
     };
   }
 
@@ -497,14 +509,18 @@ async function promptKitSelection(rl, kits, args, interactiveMode) {
   stdout.write("0. Khong cai them\n");
   kits.forEach((kit, idx) => {
     const urlPreview =
-      kit.links.length > 0 ? kit.links.map((x) => x.url).join(", ") : "Khong co link";
+      kit.links.length > 0
+        ? kit.links.map((x) => x.url).join(", ")
+        : "Khong co link";
     stdout.write(`${idx + 1}. ${kit.title} -> ${urlPreview}\n`);
   });
   const customIndex = kits.length + 1;
-  stdout.write(`${customIndex}. Tu cai (nhap link GitHub, cach nhau boi dau phay)\n`);
+  stdout.write(
+    `${customIndex}. Tu cai (nhap link GitHub, cach nhau boi dau phay)\n`,
+  );
   const raw = await promptInput(
     rl,
-    "Nhap danh sach so (co the nhieu so, vd: 1,3 hoac 0)"
+    "Nhap danh sach so (co the nhieu so, vd: 1,3 hoac 0)",
   );
   return parseKitIndexes(kits, raw);
 }
@@ -517,7 +533,7 @@ async function resolveAgentConfigPath(rl, targetRoot, args, interactiveMode) {
   const requested = path.resolve(args.agentConfigPath);
   if (!pathEqualsNormalized(requested, rootPath)) {
     throw new Error(
-      `${AGENT_CONFIG_FILENAME} must be created at project root: ${rootPath}`
+      `${AGENT_CONFIG_FILENAME} must be created at project root: ${rootPath}`,
     );
   }
   return rootPath;
@@ -551,14 +567,14 @@ async function main() {
     logInfo(`Project root: ${targetRoot}`);
     logInfo(`Rules folder: ${path.join(targetRoot, HIDDEN_RULES_DIR)}`);
     logInfo(
-      `Nguon rule se bo qua thu muc: ${Array.from(EXCLUDED_DIRS).join(", ")} (neu co)`
+      `Nguon rule se bo qua thu muc: ${Array.from(EXCLUDED_DIRS).join(", ")} (neu co)`,
     );
 
     const { selectedKitIndexes, includeCustom } = await promptKitSelection(
       rl,
       kits,
       args,
-      interactiveMode
+      interactiveMode,
     );
     let customLinks = [];
     if (!interactiveMode && args.customLinks) {
@@ -566,7 +582,7 @@ async function main() {
     } else if (includeCustom) {
       const customRaw = await promptInput(
         rl,
-        "Nhap link GitHub tuy chinh (cach nhau boi dau phay)"
+        "Nhap link GitHub tuy chinh (cach nhau boi dau phay)",
       );
       customLinks = parseGithubLinksCommaSeparated(customRaw);
       if (customLinks.length === 0) {
@@ -580,7 +596,7 @@ async function main() {
     let darkTheme = defaults.dark.theme;
 
     const hasDesignOverrideArgs = Boolean(
-      args.lightColor || args.lightTheme || args.darkColor || args.darkTheme
+      args.lightColor || args.lightTheme || args.darkColor || args.darkTheme,
     );
     let configureDesign = false;
     if (args.skipDesign) {
@@ -591,7 +607,7 @@ async function main() {
       configureDesign = await promptYesNo(
         rl,
         "\n[B3] Ban co muon tu cau hinh mau sac/theme cho Lightmode va Darkmode khong?",
-        true
+        true,
       );
     }
 
@@ -601,39 +617,43 @@ async function main() {
         (await promptInput(
           rl,
           "Lightmode - mau sac",
-          defaults.light.color || "Mac dinh hien tai"
+          defaults.light.color || "Mac dinh hien tai",
         ));
       lightTheme =
         args.lightTheme ||
         (await promptInput(
           rl,
           "Lightmode - theme",
-          defaults.light.theme || "Mac dinh hien tai"
+          defaults.light.theme || "Mac dinh hien tai",
         ));
       darkColor =
         args.darkColor ||
         (await promptInput(
           rl,
           "Darkmode - mau sac",
-          defaults.dark.color || "Mac dinh hien tai"
+          defaults.dark.color || "Mac dinh hien tai",
         ));
       darkTheme =
         args.darkTheme ||
         (await promptInput(
           rl,
           "Darkmode - theme",
-          defaults.dark.theme || "Mac dinh hien tai"
+          defaults.dark.theme || "Mac dinh hien tai",
         ));
     }
 
     const agentName =
       args.agentName ||
-      (await promptInput(rl, "Nhap ten Agent (de trong de dung mac dinh AI)", "AI"));
+      (await promptInput(
+        rl,
+        "Nhap ten Agent (de trong de dung mac dinh AI)",
+        "AI",
+      ));
     const agentConfigPath = await resolveAgentConfigPath(
       rl,
       targetRoot,
       args,
-      interactiveMode
+      interactiveMode,
     );
 
     const rulesDir = path.join(targetRoot, HIDDEN_RULES_DIR);
@@ -649,16 +669,18 @@ async function main() {
       destSystemDesignText,
       "Lightmode",
       lightColor,
-      lightTheme
+      lightTheme,
     );
     destSystemDesignText = replaceModeRow(
       destSystemDesignText,
       "Darkmode",
       darkColor,
-      darkTheme
+      darkTheme,
     );
 
-    const chosenKits = selectedKitIndexes.map((idx) => kits[idx]).filter(Boolean);
+    const chosenKits = selectedKitIndexes
+      .map((idx) => kits[idx])
+      .filter(Boolean);
     const installedKitSummaryLines = [];
     if (chosenKits.length === 0 && customLinks.length === 0) {
       installedKitSummaryLines.push("- Khong cai them kit nao.");
@@ -683,14 +705,18 @@ async function main() {
       "",
       "#### Design Overrides",
       `- Lightmode: ${lightColor} | ${lightTheme}`,
-      `- Darkmode: ${darkColor} | ${darkTheme}`
+      `- Darkmode: ${darkColor} | ${darkTheme}`,
     ].join("\n");
 
-    destSystemDesignText = updateManagedBlock(destSystemDesignText, overrideBlock);
+    destSystemDesignText = updateManagedBlock(
+      destSystemDesignText,
+      overrideBlock,
+    );
     await fsp.writeFile(destSystemDesignPath, destSystemDesignText, "utf8");
 
-    const kitTargets = getKitInstallTargets(selectedKitIndexes, kits)
-      .concat(customLinks.map((url) => ({ source: "Custom", url })));
+    const kitTargets = getKitInstallTargets(selectedKitIndexes, kits).concat(
+      customLinks.map((url) => ({ source: "Custom", url })),
+    );
     const installReport = [];
 
     if (kitTargets.length > 0) {
@@ -699,7 +725,7 @@ async function main() {
         const installCommand = await inferInstallCommandFromReadme(target.url);
         if (!installCommand) {
           installReport.push(
-            `[SKIP] ${target.url}\nNo install command detected from README. Please follow project instructions manually.`
+            `[SKIP] ${target.url}\nNo install command detected from README. Please follow project instructions manually.`,
           );
           continue;
         }
@@ -712,7 +738,7 @@ async function main() {
 
         const err = run.stderr || run.stdout || "Unknown install error.";
         installReport.push(
-          `[FAIL] ${target.url}\nCommand: ${installCommand}\n${err}`
+          `[FAIL] ${target.url}\nCommand: ${installCommand}\n${err}`,
         );
         logWarn(`Cai dat that bai cho kit: ${target.url}`);
       }
@@ -724,7 +750,7 @@ async function main() {
     await fsp.writeFile(
       installReportPath,
       `# HEYAI Install Report\n\n${installReport.join("\n\n")}\n`,
-      "utf8"
+      "utf8",
     );
 
     await ensureDirectory(path.dirname(agentConfigPath));
@@ -737,19 +763,19 @@ async function main() {
         shouldWriteAgentFile = await promptYesNo(
           rl,
           `${AGENT_CONFIG_FILENAME} da ton tai. Ban co muon ghi de khong?`,
-          false
+          false,
         );
       } else {
         shouldWriteAgentFile = false;
         logWarn(
-          `${AGENT_CONFIG_FILENAME} already exists and overwrite is disabled; skip writing.`
+          `${AGENT_CONFIG_FILENAME} already exists and overwrite is disabled; skip writing.`,
         );
       }
     }
     if (shouldWriteAgentFile) {
       const content = buildAgentConfigContent({
         agentName,
-        projectRoot: targetRoot
+        projectRoot: targetRoot,
       });
       await fsp.writeFile(agentConfigPath, content, "utf8");
     }
@@ -761,7 +787,7 @@ async function main() {
       existingRootAgents || "# AGENTS\n",
       "<!-- HEYAI-RULE-BRIDGE:START -->",
       "<!-- HEYAI-RULE-BRIDGE:END -->",
-      bridgeBlock
+      bridgeBlock,
     );
     await fsp.writeFile(rootAgentsPath, nextRootAgents, "utf8");
 
