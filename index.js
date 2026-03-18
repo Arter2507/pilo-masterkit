@@ -344,9 +344,11 @@ project_root: "${projectRoot.replace(/\\/g, "/")}"
 rules_root: "${rulesDirName}"
 rule_priority:
   - "MAP.md"
-  - "AGENTS.md"
+  - "IDENTITY_SOUL.md"
   - "PROTOCOL.md"
   - "PROTOCOLS.md"
+  - "WORKFLOWS.md"
+  - "CODE_STANDARDS.md"
 ---
 
 # HEYAI Agent Configuration
@@ -355,9 +357,11 @@ Use this file as the single source of truth for agent identity and rule-loading 
 
 When a conversation starts with "Hey, AI" or "Hey, ${resolvedName}", load rules from \`${rulesDirName}\` in this priority:
 1. \`${rulesDirName}/MAP.md\`
-2. \`${rulesDirName}/AGENTS.md\` (if exists)
+2. \`${rulesDirName}/IDENTITY_SOUL.md\` (if exists)
 3. \`${rulesDirName}/PROTOCOL.md\` (if exists)
 4. \`${rulesDirName}/PROTOCOLS.md\` (fallback)
+5. \`${rulesDirName}/WORKFLOWS.md\` (if exists)
+6. \`${rulesDirName}/CODE_STANDARDS.md\` (if exists)
 `;
 }
 
