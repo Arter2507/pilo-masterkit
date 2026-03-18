@@ -1,6 +1,6 @@
 {
   "name": "create-heyai-ruleset",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Scaffold and install HEYAI ruleset into a project.",
   "bin": {
     "create-heyai-ruleset": "index.js"
