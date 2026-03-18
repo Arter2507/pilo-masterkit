@@ -1,6 +1,6 @@
 {
   "name": "@heyai-rules/heyai-ruleset",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Scaffold and install HEYAI ruleset into a project.",
   "keywords": [
     "create",

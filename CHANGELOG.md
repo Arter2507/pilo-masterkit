@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/Arter2507/create-heyai-ruleset/compare/v1.2.0...v1.2.1) (2026-03-18)
+
+
+### Bug Fixes
+
+* relocate open-source security policy to .github directory for better tab priority ([48cae59](https://github.com/Arter2507/create-heyai-ruleset/commit/48cae59ffb3b3ef99742e6b1ab9fdccf27a3c5f9))
+
 # [1.2.0](https://github.com/Arter2507/create-heyai-ruleset/compare/v1.1.1...v1.2.0) (2026-03-18)
 
 
