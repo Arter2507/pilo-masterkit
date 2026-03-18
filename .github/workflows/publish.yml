@@ -32,6 +32,8 @@ jobs:
         id: publish_oidc
         continue-on-error: true
         run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ""
 
       - name: Fallback publish with NPM_TOKEN
         if: steps.publish_oidc.outcome == 'failure'
