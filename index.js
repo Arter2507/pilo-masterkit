@@ -9,6 +9,7 @@ const { spawnSync } = require("node:child_process");
 
 const HIDDEN_RULES_DIR = ".heyai-ruleset";
 const AGENT_CONFIG_FILENAME = "HEYAI.agent.md";
+const ROOT_INSTALL_REPORT_FILENAME = "install-report.md";
 const EXCLUDED_DIRS = new Set(["session_checkpoint", "walkthrough"]);
 const RULE_FILES = [
   "CODE_STANDARDS.md",
@@ -809,12 +810,27 @@ async function main() {
       installReport.push("No kits selected for installation.");
     }
 
-    const installReportPath = path.join(rulesDir, "install-report.md");
-    await fsp.writeFile(
-      installReportPath,
-      `# HEYAI Install Report\n\n${installReport.join("\n\n")}\n`,
-      "utf8",
+    const rulesFilesInstalled = RULE_FILES.map((file) => `- ${HIDDEN_RULES_DIR}/${file}`);
+    const reportBody = [
+      "# HEYAI Install Report",
+      "",
+      "## Core HEYAI Ruleset",
+      `- Installed directory: ${HIDDEN_RULES_DIR}`,
+      ...rulesFilesInstalled,
+      "",
+      "## Kit Installation Results",
+      ...installReport,
+      "",
+    ].join("\n");
+
+    const rootInstallReportPath = path.join(
+      targetRoot,
+      ROOT_INSTALL_REPORT_FILENAME,
     );
+    await fsp.writeFile(rootInstallReportPath, reportBody, "utf8");
+
+    const legacyInstallReportPath = path.join(rulesDir, "install-report.md");
+    await fsp.writeFile(legacyInstallReportPath, reportBody, "utf8");
 
     await ensureDirectory(path.dirname(agentConfigPath));
     const agentExists = fs.existsSync(agentConfigPath);
@@ -857,7 +873,8 @@ async function main() {
     logInfo("Hoan tat cai dat.");
     logInfo(`Rules: ${rulesDir}`);
     logInfo(`SYSTEM_DESIGN da cap nhat: ${destSystemDesignPath}`);
-    logInfo(`Bao cao kit: ${installReportPath}`);
+    logInfo(`Bao cao cai dat (root): ${rootInstallReportPath}`);
+    logInfo(`Bao cao cai dat (legacy): ${legacyInstallReportPath}`);
     logInfo(`Agent config: ${agentConfigPath}`);
     logInfo(`Root AGENTS bridge: ${rootAgentsPath}`);
     logInfo(`Trigger greetings: "Hey, AI", "Hey, ${agentName}"`);

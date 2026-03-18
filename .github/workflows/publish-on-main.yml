@@ -1,0 +1,63 @@
+name: Publish npm (main)
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - package.json
+      - index.js
+      - README.md
+      - RELEASE.md
+      - scripts/release-check.js
+
+jobs:
+  publish-if-new-version:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Verify package
+        run: npm run check && npm run pack:dry
+
+      - name: Compare npm version
+        id: compare
+        shell: bash
+        run: |
+          LOCAL_VERSION=$(node -p "require('./package.json').version")
+          PUBLISHED_VERSION=$(npm view create-heyai-ruleset version 2>/dev/null || true)
+          echo "local_version=${LOCAL_VERSION}" >> "$GITHUB_OUTPUT"
+          echo "published_version=${PUBLISHED_VERSION}" >> "$GITHUB_OUTPUT"
+          if [ "${LOCAL_VERSION}" = "${PUBLISHED_VERSION}" ]; then
+            echo "should_publish=false" >> "$GITHUB_OUTPUT"
+            echo "Version ${LOCAL_VERSION} already published. Skip."
+          else
+            echo "should_publish=true" >> "$GITHUB_OUTPUT"
+            echo "Detected new version ${LOCAL_VERSION}. Will publish."
+          fi
+
+      - name: Publish
+        if: steps.compare.outputs.should_publish == 'true'
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Summary
+        shell: bash
+        run: |
+          echo "local=${{ steps.compare.outputs.local_version }}"
+          echo "published=${{ steps.compare.outputs.published_version }}"
+          echo "should_publish=${{ steps.compare.outputs.should_publish }}"
