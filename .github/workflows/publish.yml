@@ -30,7 +30,7 @@ jobs:
       - name: Publish with npm trusted publishing (OIDC)
         id: publish_oidc
         continue-on-error: true
-        run: npm publish --access public
+        run: npm publish --provenance --access public
 
       - name: Fallback publish with NPM_TOKEN
         if: steps.publish_oidc.outcome == 'failure'
