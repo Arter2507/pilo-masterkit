@@ -1,0 +1,41 @@
+{
+  "name": "create-heyai-ruleset",
+  "version": "0.1.0",
+  "description": "Scaffold and install HEYAI ruleset into a project.",
+  "bin": {
+    "create-heyai-ruleset": "./index.js"
+  },
+  "type": "commonjs",
+  "scripts": {
+    "check": "node --check index.js",
+    "pack:dry": "npm pack --dry-run",
+    "release:check": "node scripts/release-check.js"
+  },
+  "keywords": [
+    "create",
+    "cli",
+    "ruleset",
+    "agent"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "index.js",
+    "README.md",
+    "RELEASE.md",
+    "scripts/release-check.js",
+    "CODE_STANDARDS.md",
+    "GIT_WORKFLOW.md",
+    "IDENTITY_SOUL.md",
+    "MAP.md",
+    "MEMORIES.md",
+    "PROTOCOLS.md",
+    "RULES.md",
+    "SECURITY.md",
+    "SYSTEM_DESIGN.md",
+    "TESTING_POLICY.md",
+    "WORKFLOWS.md"
+  ]
+}
