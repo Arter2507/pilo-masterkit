@@ -4,7 +4,7 @@ CLI scaffolder để cài bộ quy tắc HEYAI vào dự án và chuẩn hoá c�
 (CLI scaffolder to install the HEYAI ruleset into a project and standardize how Agents load rules.)
 
 [![CI](https://github.com/Arter2507/create-heyai-ruleset/actions/workflows/ci.yml/badge.svg)](https://github.com/Arter2507/create-heyai-ruleset/actions/workflows/ci.yml)
-[![npm version](https://img.shields.io/npm/v/create-heyai-ruleset.svg)](https://www.npmjs.com/package/create-heyai-ruleset)
+[![npm version](https://img.shields.io/npm/v/create-heyai-ruleset.svg)](https://www.npmjs.com/package/@heyai-rules/heyai-ruleset?activeTab=readme)
 
 ## 🎯 Mục tiêu / Objectives
 
