@@ -26,3 +26,6 @@ jest.config.js
 tsconfig.json
 .editorconfig
 .gitignore
+
+# Tasks & Local workflow
+task/

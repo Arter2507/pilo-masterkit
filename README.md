@@ -57,6 +57,7 @@ You have access to a rich set of built-in commands for your AI:
 - `/status` - Display agent and project status.
 - `/tdd` - Strict Test-Driven Development protocol.
 - `/debug` - Systematic debugging methodology with root cause analysis.
+- `/clean-memory` - Evaluate and clean AI Agent's memory/context to avoid bloat.
 - `/e2e` - End-to-end testing with Playwright.
 
 #### **Development Capabilities:**
@@ -71,7 +72,7 @@ You have access to a rich set of built-in commands for your AI:
 <details>
 <summary><b>View ALL Available Commands</b></summary>
 
-`/aside`, `/brainstorm`, `/claw`, `/context-budget`, `/cpp-build`, `/cpp-review`, `/cpp-test`, `/create`, `/debug`, `/deploy`, `/devfleet`, `/docs`, `/e2e`, `/enhance`, `/evolve`, `/go-build`, `/go-review`, `/go-test`, `/gradle-build`, `/init-docs`, `/instinct-export`, `/instinct-import`, `/instinct-status`, `/kotlin-build`, `/kotlin-review`, `/kotlin-test`, `/learn-eval`, `/orchestrate`, `/plan`, `/preview`, `/projects`, `/promote`, `/prompt-optimize`, `/prune`, `/python-review`, `/resume-session`, `/rules-distill`, `/rust-build`, `/rust-review`, `/rust-test`, `/save-session`, `/sessions`, `/setup-pm`, `/skill-create`, `/skill-health`, `/status`, `/tdd`, `/test`, `/ui-ux-pro-max`.
+`/aside`, `/brainstorm`, `/claw`, `/clean-memory`, `/context-budget`, `/cpp-build`, `/cpp-review`, `/cpp-test`, `/create`, `/debug`, `/deploy`, `/devfleet`, `/docs`, `/e2e`, `/enhance`, `/evolve`, `/go-build`, `/go-review`, `/go-test`, `/gradle-build`, `/init-docs`, `/instinct-export`, `/instinct-import`, `/instinct-status`, `/kotlin-build`, `/kotlin-review`, `/kotlin-test`, `/learn-eval`, `/orchestrate`, `/plan`, `/preview`, `/projects`, `/promote`, `/prompt-optimize`, `/prune`, `/python-review`, `/resume-session`, `/rules-distill`, `/rust-build`, `/rust-review`, `/rust-test`, `/save-session`, `/sessions`, `/setup-pm`, `/skill-create`, `/skill-health`, `/status`, `/tdd`, `/test`, `/ui-ux-pro-max`.
 </details>
 
 ---
@@ -106,6 +107,7 @@ Sử dụng sức mạnh tự động hóa qua các lệnh slash cho AI Agent:
 - `/status` - Kiểm tra trạng thái Agent và tiến độ công việc.
 - `/tdd` - Phát triển hướng kiểm thử (Test-Driven Development).
 - `/debug` - Chế độ tìm lỗi có hệ thống với bảng nguyên nhân gốc.
+- `/clean-memory` - Tự động đánh giá và dọn dẹp bộ nhớ/ngữ cảnh tránh "loãng" bộ nhớ.
 
 #### **Phát triển Tính năng:**
 - `/ui-ux-pro-max` - Triển khai và tái hiện giao diện chuẩn mực.
@@ -119,7 +121,7 @@ Sử dụng sức mạnh tự động hóa qua các lệnh slash cho AI Agent:
 <details>
 <summary><b>Xem TOÀN BỘ lệnh (Available Commands)</b></summary>
 
-`/aside`, `/brainstorm`, `/claw`, `/context-budget`, `/cpp-build`, `/cpp-review`, `/cpp-test`, `/create`, `/debug`, `/deploy`, `/devfleet`, `/docs`, `/e2e`, `/enhance`, `/evolve`, `/go-build`, `/go-review`, `/go-test`, `/gradle-build`, `/init-docs`, `/instinct-export`, `/instinct-import`, `/instinct-status`, `/kotlin-build`, `/kotlin-review`, `/kotlin-test`, `/learn-eval`, `/orchestrate`, `/plan`, `/preview`, `/projects`, `/promote`, `/prompt-optimize`, `/prune`, `/python-review`, `/resume-session`, `/rules-distill`, `/rust-build`, `/rust-review`, `/rust-test`, `/save-session`, `/sessions`, `/setup-pm`, `/skill-create`, `/skill-health`, `/status`, `/tdd`, `/test`, `/ui-ux-pro-max`.
+`/aside`, `/brainstorm`, `/claw`, `/clean-memory`, `/context-budget`, `/cpp-build`, `/cpp-review`, `/cpp-test`, `/create`, `/debug`, `/deploy`, `/devfleet`, `/docs`, `/e2e`, `/enhance`, `/evolve`, `/go-build`, `/go-review`, `/go-test`, `/gradle-build`, `/init-docs`, `/instinct-export`, `/instinct-import`, `/instinct-status`, `/kotlin-build`, `/kotlin-review`, `/kotlin-test`, `/learn-eval`, `/orchestrate`, `/plan`, `/preview`, `/projects`, `/promote`, `/prompt-optimize`, `/prune`, `/python-review`, `/resume-session`, `/rules-distill`, `/rust-build`, `/rust-review`, `/rust-test`, `/save-session`, `/sessions`, `/setup-pm`, `/skill-create`, `/skill-health`, `/status`, `/tdd`, `/test`, `/ui-ux-pro-max`.
 </details>
 
 ---
