@@ -100,7 +100,7 @@ function printBanner() {
   console.log(pc.magenta("   ██╔═══╝ ██║██║     ██║   ██║    ██║╚██╔╝██║██╔══██║╚════██║   ██║   ██╔══╝  ██╔══██╗"))
   console.log(pc.magenta("   ██║     ██║███████╗╚██████╔╝    ██║ ╚═╝ ██║██║  ██║███████║   ██║   ███████╗██║  ██║"))
   console.log(pc.magenta("   ╚═╝     ╚═╝╚══════╝ ╚═════╝     ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝"))
-  console.log(pc.bold(pc.cyan("\n                       SYSTEM INITIALIZER v2.0\n")));
+  console.log(pc.bold(pc.cyan("\n                       SYSTEM INITIALIZER v2.1\n")));
 }
 
 /**
