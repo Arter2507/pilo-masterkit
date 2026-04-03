@@ -1,3 +1,18 @@
+# [2.0.0](https://github.com/Arter2507/pilo-masterkit/compare/v1.2.3...v2.0.0) (2026-04-03)
+
+
+* feat!(cli): finalize v2.1.0 release with i18n and interactive v2 UI BREAKING CHANGE: Complete CLI 2.0 and i18n upgrade for Pilo Masterkit. ([c7e2006](https://github.com/Arter2507/pilo-masterkit/commit/c7e2006db213b5ac5a5c6f4ee080b2d552111fa6))
+
+
+### Features
+
+* **cli:** release v2.1.0 - interactive v2, i18n, personalized agent triggers and localized content ([4ae1419](https://github.com/Arter2507/pilo-masterkit/commit/4ae141984874e2f45933d2d7674f1a31805a7bee))
+
+
+### BREAKING CHANGES
+
+* Complete CLI 2.0 and i18n upgrade for Pilo Masterkit.
+
 ## [1.2.1](https://github.com/Arter2507/create-heyai-ruleset/compare/v1.2.0...v1.2.1) (2026-03-18)
 
 
