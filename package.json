@@ -1,6 +1,6 @@
 {
   "name": "@heyai-rules/pilo-masterkit",
-  "version": "3.1.0",
+  "version": "2.2.0",
   "description": "Scaffold and install PILO ruleset into a project.",
   "keywords": [
     "create",
@@ -29,6 +29,7 @@
     ".agent",
     "README.md",
     "RELEASE.md",
+    "SLASH_COMMANDS.md",
     "scripts/release-check.js"
   ],
   "scripts": {

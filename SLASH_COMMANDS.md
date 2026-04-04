@@ -1,80 +1,121 @@
 # 🎮 Pilo Masterkit - Slash Commands Wiki
 
-Chào mừng bạn đến với hướng dẫn sử dụng hệ thống lệnh **Slash Command** của Pilo Masterkit. Đây là bộ công cụ giúp bạn điều khiển AI Agent một cách có hệ thống và hiệu quả nhất.
+Welcome to the **Slash Command** system of Pilo Masterkit. These commands let you control your AI Agent in a structured and efficient way.
+
+Chào mừng bạn đến với hệ thống lệnh **Slash Command** của Pilo Masterkit. Đây là bộ công cụ giúp điều khiển AI Agent một cách có hệ thống và hiệu quả nhất.
 
 ---
 
-## 🏗️ 1. Quy trình Lõi (Core Workflows)
+## 🏗️ 1. Core Workflows / Quy trình Lõi
 
-Mọi phiên làm việc nên bắt đầu và kết thúc bằng các lệnh này để đảm bảo tính nhất quán.
+Every session should start and end with these commands for consistency.
 
-| Lệnh | Chức năng | Cách dùng |
+| Command | EN Description | VI Mô tả |
 | :--- | :--- | :--- |
-| `/plan` | **Lập kế hoạch** | Phân tích yêu cầu, đánh giá rủi ro và liệt kê bước thực hiện. |
-| `/status` | **Trạng thái** | Kiểm tra tiến độ dự án, danh sách file thay đổi và trạng thái Agent. |
-| `/debug` | **Gỡ lỗi** | Tìm kiếm nguyên nhân gốc rễ (Root Cause) và sửa lỗi có hệ thống. |
-| `/brainstorm` | **Ý tưởng** | Thảo luận và tìm giải pháp cho các vấn đề kỹ thuật hoặc sản phẩm. |
-| `/aside` | **Hỏi đáp nhanh** | Trả lời câu hỏi phụ mà không làm loãng luồng công việc chính. |
+| `/plan` | Analyze requirements, assess risks, create step-by-step plan. | Lập kế hoạch chi tiết, đánh giá rủi ro. |
+| `/status` | Check project progress and Agent state. | Kiểm tra tiến độ dự án và trạng thái Agent. |
+| `/debug` | Systematic root-cause analysis and fix. | Tìm nguyên nhân gốc rễ và sửa lỗi có hệ thống. |
+| `/brainstorm` | Structured ideation for features/strategy. | Brainstorming có cấu trúc cho tính năng/chiến lược. |
+| `/aside` | Quick side-question without losing context. | Hỏi đáp nhanh không làm loãng luồng chính. |
 
 ---
 
-## 💻 2. Phát triển Tính năng (Feature Development)
+## 💻 2. Feature Development / Phát triển Tính năng
 
-Các lệnh hỗ trợ quá trình viết code và triển khai tính năng mới.
-
-| Lệnh | Chức năng | Cách dùng |
+| Command | EN Description | VI Mô tả |
 | :--- | :--- | :--- |
-| `/create` | **Khởi tạo** | Tạo mới một hàm, module hoặc một ứng dụng nhỏ từ đầu. |
-| `/enhance` | **Nâng cấp** | Thêm tính năng hoặc tối ưu hóa mã nguồn hiện tại. |
-| `/tdd` | **TDD Protocol** | Phát triển hướng kiểm thử (Viết test trước, code sau). |
-| `/ui-ux-pro-max` | **Giao diện chuẩn** | Thiết kế và triển khai GUI theo phong cách premium. |
-| `/preview` | **Xem trước** | Khởi chạy và kiểm tra dự án trên môi trường local. |
+| `/create` | Create a new function, module, or application. | Tạo mới một hàm, module hoặc ứng dụng. |
+| `/enhance` | Add features or optimize existing code. | Nâng cấp tính năng hoặc tối ưu mã nguồn. |
+| `/tdd` | Test-Driven Development (write tests first). | Phát triển hướng kiểm thử (test trước, code sau). |
+| `/ui-ux-pro-max` | Premium GUI design and implementation. | Thiết kế và triển khai giao diện cao cấp. |
+| `/preview` | Start and check local dev server. | Khởi chạy và kiểm tra server cục bộ. |
 
 ---
 
-## 🛡️ 3. Kiểm định & Chất lượng (Quality & Security)
+## 🚀 3. Deployment / Triển khai
 
-Dành cho việc bảo trì, review và đảm bảo an toàn cho mã nguồn.
+Commands optimized for platforms you chose during setup.
 
-| Lệnh | Chức năng | Cách dùng |
+| Command | EN Description | VI Mô tả |
 | :--- | :--- | :--- |
-| `/code-review` | **Review Code** | Đánh giá chất lượng code, tìm lỗi logic và đề xuất refactor. |
-| `/e2e` | **Test đầu-cuối** | Chạy kiểm thử End-to-End với Playwright. |
-| `/verify` | **Xác minh** | Kiểm tra tổng thể dự án trước khi commit hoặc release. |
-| `/*-review` | **Review Ngôn ngữ** | `/cpp-review`, `/rust-review`, `/python-review`... |
-| `/rules-distill` | **Chắt lọc quy tắc** | Tự động cập nhật các quy tắc mới từ quá trình làm việc. |
+| `/deploy` | Deploy to your selected platform (Vercel, GitHub Pages, Docker, Custom). | Triển khai lên nền tảng đã chọn. |
 
 ---
 
-## 🧠 4. Quản trị Tri thức (Knowledge & Memory)
+## 🛡️ 4. Quality & Security / Kiểm định & Chất lượng
 
-Kiểm soát bộ nhớ của AI và tài liệu hóa dự án.
-
-| Lệnh | Chức năng | Cách dùng |
+| Command | EN Description | VI Mô tả |
 | :--- | :--- | :--- |
-| `/clean-memory` | **Dọn dẹp bộ nhớ** | Phân tích và nén ngữ cảnh để AI không bị "loãng" thông tin. |
-| `/docs` | **Tra cứu tài liệu** | Tìm kiếm thông tin trong documentation của các thư viện. |
-| `/init-docs` | **Khởi tạo Docs** | Tạo cấu trúc thư mục tài liệu chuẩn Pilo. |
-| `/learn` | **Học tập** | Ghi nhớ các pattern mới vào hệ thống `.agent`. |
-| `/save-session` | **Lưu phiên** | Lưu trạng thái làm việc để tiếp tục sau này. |
+| `/code-review` | Review code quality, find logic errors, suggest refactoring. | Đánh giá chất lượng, tìm lỗi logic, đề xuất refactor. |
+| `/e2e` | End-to-End testing with Playwright. | Kiểm thử End-to-End với Playwright. |
+| `/verify` | Full project verification before commit/release. | Xác minh tổng thể dự án trước khi commit/release. |
+| `/test` | Run test suite (language-aware). | Chạy bộ kiểm thử (tự nhận dạng ngôn ngữ). |
+| `/rules-distill` | Auto-update rules from working patterns. | Tự động cập nhật quy tắc từ quá trình làm việc. |
 
 ---
 
-## 🎛️ 5. Lệnh Nâng cao (Advanced Orchestration)
+## 🔬 5. Language-Specific Reviews / Review theo Ngôn ngữ
 
-Dành cho các kịch bản phức tạp hoặc quản lý đa Agent.
+Deep code reviews focusing on idiomatic conventions and safety.
 
-| Lệnh | Chức năng | Cách dùng |
+| Command | Target |
+| :--- | :--- |
+| `/python-review` | Python (PEP 8, type hints, security) |
+| `/rust-review` | Rust (ownership, lifetimes, unsafe) |
+| `/go-review` | Go (concurrency, error handling) |
+| `/cpp-review` | C++ (memory safety, modern C++) |
+| `/kotlin-review` | Kotlin/Java (null safety, coroutines) |
+| `/flutter-review` | Flutter/Dart (widgets, state management) |
+| `/laravel-review` | Laravel PHP (Eloquent, validation) |
+
+---
+
+## 🧠 6. Knowledge & Memory / Quản trị Tri thức
+
+| Command | EN Description | VI Mô tả |
 | :--- | :--- | :--- |
-| `/orchestrate` | **Điều phối** | Quản lý luồng làm việc của nhiều Agent cùng lúc. |
-| `/prp-*` | **PRP Protocol** | Quy trình thực thi dự án quy mô lớn (`/prp-plan`, `/prp-implement`). |
-| `/santa-loop` | **Xác minh kép** | Chạy vòng lặp kiểm tra chéo giữa 2 Agent độc lập. |
-| `/skill-create` | **Tạo Skill** | Tự động sinh ra file `SKILL.md` từ kinh nghiệm làm việc thực tế. |
+| `/clean-memory` | Compress context to avoid memory bloat. | Nén ngữ cảnh tránh "loãng" bộ nhớ. |
+| `/docs` | Look up library documentation. | Tra cứu tài liệu thư viện. |
+| `/init-docs` | Create standard Pilo docs structure. | Tạo cấu trúc tài liệu chuẩn Pilo. |
+| `/save-session` | Save session state for later resumption. | Lưu phiên làm việc để tiếp tục sau. |
+
+---
+
+## 🎛️ 7. Advanced Orchestration / Điều phối Nâng cao
+
+| Command | EN Description | VI Mô tả |
+| :--- | :--- | :--- |
+| `/orchestrate` | Multi-agent workflow orchestration. | Điều phối luồng làm việc đa Agent. |
+| `/prp-plan` | Large-scale project planning protocol. | Quy trình lập kế hoạch dự án quy mô lớn. |
+| `/prp-implement` | Execute implementation plan with validation. | Thực thi kế hoạch với vòng kiểm tra. |
+| `/santa-loop` | Dual-agent adversarial verification loop. | Vòng lặp kiểm tra chéo giữa 2 Agent. |
+| `/skill-create` | Generate `SKILL.md` from real experience. | Tạo `SKILL.md` từ kinh nghiệm thực tế. |
+
+---
+
+## 🔧 8. Build Error Resolvers / Xử lý Lỗi Build
+
+| Command | Target |
+| :--- | :--- |
+| `/rust-build` | Fix Rust build errors and borrow checker issues |
+| `/go-build` | Fix Go build errors and `go vet` warnings |
+| `/flutter-build` | Fix Dart analyzer and Flutter build failures |
+| `/gradle-build` | Fix Gradle build errors for Android/KMP |
+| `/kotlin-build` | Fix Kotlin/Gradle compiler issues |
+| `/cpp-build` | Fix C++ build errors, CMake, and linker problems |
 
 ---
 
 > [!TIP]
-> **Mẹo nhỏ**: AI Agent sẽ tự động đọc file workflow tương ứng trong thư mục `.agent/workflows/` mỗi khi bạn gọi lệnh slash. Bạn có thể tự tạo lệnh mới bằng cách thêm file `.md` vào thư mục đó!
+> **Pro Tip**: The AI Agent reads the corresponding `.md` file in `.agent/workflows/` whenever you call a slash command. You can create your own commands by adding a new `.md` file there!
+>
+> **Mẹo**: Agent sẽ tự động đọc file workflow tương ứng trong `.agent/workflows/` mỗi khi bạn gọi lệnh slash. Bạn có thể tự tạo lệnh mới bằng cách thêm file `.md` vào thư mục đó!
+
+> [!NOTE]
+> Your project also includes a **`PILO_WIKI.md`** — an auto-generated wiki with commands tailored specifically to your stack and deploy target.
+>
+> Dự án của bạn cũng bao gồm **`PILO_WIKI.md`** — một wiki tự động sinh với các lệnh phù hợp riêng cho Stack và Deploy của bạn.
 
 ---
+
 *© 2026 Pilo Masterkit - Orchestrating the future with discipline and soul.*

@@ -1,141 +1,160 @@
 <div align="center">
   <img src="docs/assets/banner.png" alt="Pilo Masterkit Banner" width="100%">
 
-  # 🤖 Pilo Masterkit
-  
-  <p><b>The ultimate AI Coding Assistant standardizer and workspace initializer.</b></p>
-  
-  [![NPM version](https://img.shields.io/npm/v/@heyai-rules/pilo-masterkit.svg?style=for-the-badge&color=blue)](https://www.npmjs.com/package/@heyai-rules/pilo-masterkit)
-  [![Latest Release](https://img.shields.io/badge/Release-v2.1.0-orange.svg?style=for-the-badge)](https://github.com/Arter2507/pilo-masterkit/releases/tag/v2.1.0)
-  [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=for-the-badge)](https://opensource.org/licenses/Apache-2.0)
+# 🤖 Pilo Masterkit
 
-  [**English Version**](#english-version) | [**Phiên bản Tiếng Việt**](#phiên-bản-tiếng-việt)
+  <p><b>The ultimate AI Coding Assistant standardizer and workspace initializer.</b></p>
+
+[![NPM version](https://img.shields.io/npm/v/@heyai-rules/pilo-masterkit.svg?style=for-the-badge&color=blue)](https://www.npmjs.com/package/@heyai-rules/pilo-masterkit)
+[![Latest Release](https://img.shields.io/badge/Release-v2.2.0-orange.svg?style=for-the-badge)](https://github.com/Arter2507/pilo-masterkit/releases)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=for-the-badge)](https://opensource.org/licenses/Apache-2.0)
+
+[**English**](#-english) | [**Tiếng Việt**](#-tiếng-việt)
+
 </div>
 
 ---
 
-## 🌎 English Version
+## 🌎 English
 
 ### 🎯 Project Purpose
 
-`Pilo Masterkit` is designed to transform an ordinary AI Coding Assistant into a disciplined **AI Task Force**. It acts as a comprehensive "brain" for your project, solving issues like context loss and inconsistent logic. It enforces a professional environment through standardized commands, strict development rules, and high-quality design systems.
+`Pilo Masterkit` transforms an ordinary AI Coding Assistant into a disciplined **AI Task Force**. It acts as a comprehensive "brain" for your project — solving context loss, enforcing standardized commands, strict development rules, and high-quality design systems.
 
 ### ✨ Key Features
 
-- **Project Context Initializer**: Creates a clean directory structure (such as `docs/tasks`, `docs/plans`, etc.) ready for the AI.
-- **Dynamic Context File**: Generates `GEMINI.md`, `CLAUDE.md`, or `AGENTS.md` fully localized in your chosen language.
-- **Interactive CLI UI 2.0**: Start new projects friction-free via a stunning interactive graphical CLI with step-by-step progress.
-- **Personalized Agent Triggers**: Custom name (default: **Pilo**) and language-specific activation commands (Hey Pilo, Chào Pilo...).
-- **Specialist Modules**: Enforces latest practices for Architecture, Clean Code, Security, and UI/UX Pro Max.
+- **Project Context Initializer**: Creates a clean directory structure (`docs/tasks`, `docs/plans`, etc.) ready for the AI.
+- **Dynamic AI Host Files**: Generates `GEMINI.md`, `CLAUDE.md`, or `AGENTS.md` fully localized in your chosen language.
+- **Interactive CLI v2.2**: Step-by-step wizard with product type selection, deployment target, and personalized agent triggers.
+- **Auto-Generated Wiki**: `PILO_WIKI.md` is created automatically with slash commands tailored to your stack and deploy target.
+- **Deployment Target**: Choose between Vercel, GitHub Pages, Docker, or custom — the Agent will optimize accordingly.
+- **Bilingual Support**: Full English and Vietnamese localization for CLI, AI hosts, and documentation.
 
 ### 🏗️ Workflow Architecture
 
 ```mermaid
 graph TD
-    A[Start: npx @heyai-rules/pilo-masterkit] --> B[Interactive CLI]
+    A["Start: npx @heyai-rules/pilo-masterkit"] --> B[Interactive CLI v2.2]
     B --> C{Select Parameters}
-    C -->|Language| D[Language Identity]
-    C -->|Scale| E[Project Structure]
-    C -->|AI Name| F[Context Binding]
-    D & E & F --> G[Generate Workspace]
-    G --> H[AI Task Force Ready]
+    C -->|Language| D[EN / VI]
+    C -->|Product Type| E["Landing Page / Webapp / Cross-Platform / Desktop / Mobile / API / SDK / Research"]
+    C -->|Deploy Target| F["Vercel / GitHub Pages / Docker / Custom"]
+    C -->|Agent Name| G["Personalized Triggers"]
+    D & E & F & G --> H[Generate Workspace + PILO_WIKI.md]
+    H --> I["AI Task Force Ready"]
 ```
 
-### 📸 Snapshot in Action
+### 📸 CLI in Action
 
-![Pilo Masterkit CLI Snapshot - v2.1](docs/assets/cli_snapshot_v21.png)
+![Pilo Masterkit CLI Wizard - v2.2](docs/assets/cli_v22_wizard.png)
+
+![Pilo Masterkit CLI Result - v2.2](docs/assets/cli_v22_result.png)
 
 ### 🚀 Quick Start
 
-Run the following command anywhere to initialize your workspace:
-
 ```bash
+# Interactive mode (recommended)
 npx @heyai-rules/pilo-masterkit@latest init
+
+# Non-interactive: selective stack
+npx @heyai-rules/pilo-masterkit@latest --stack=typescript,python --ai=claude --locale=en
+
+# Non-interactive: full installation
+npx @heyai-rules/pilo-masterkit@latest --profile all
 ```
 
-*Note: You can also use `--profile all` for or `--stack <name> --ai <host>` for non-interactive setup.*
+_Note: You can also use `--profile all` for or `--stack <name> --ai <host>` for non-interactive setup._
 
 ### 🎮 Slash Commands
 
 You have access to a rich set of built-in commands for your AI:
 
 #### **Core Utilities:**
-- `/plan` - Restate requirements, assess risks, and create step-by-step implementation plan.
-- `/status` - Display agent and project status.
-- `/tdd` - Strict Test-Driven Development protocol.
-- `/debug` - Systematic debugging methodology with root cause analysis.
-- `/clean-memory` - Evaluate and clean AI Agent's memory/context to avoid bloat.
-- `/e2e` - End-to-end testing with Playwright.
 
-#### **Development Capabilities:**
+- `/plan` - Create detailed implementation plan with risk assessment.
+- `/status` - Display agent and project status.
+- `/debug` - Systematic debugging with root cause analysis.
+- `/tdd` - Strict Test-Driven Development protocol.
+- `/clean-memory` - Clean AI Agent's memory/context to avoid bloat.
+- `/code-review` - High-standard code review.
+
+#### **Development & Deploy:**
+
 - `/ui-ux-pro-max` - Plan and implement top-tier UI/UX.
-- `/enhance` - Add or update features in existing applications.
 - `/create` - Create new application functions.
-- `/deploy` - Deployment command for production releases.
+- `/enhance` - Add or update features in existing applications.
+- `/deploy` - Deploy to your chosen platform (Vercel, GitHub Pages, Docker...).
 
 #### **Code Review & Quality:**
-- `/cpp-review`, `/rust-review`, `/go-review`, `/python-review`, `/kotlin-review` - Deep, language-specific code reviews focusing on idiomatic conventions and safety.
+
+- `/cpp-review`, `/rust-review`, `/go-review`, `/python-review`, `/kotlin-review`, `/flutter-review` - Deep, language-specific code reviews.
 
 > [!IMPORTANT]
-> **View all commands**: For a complete list of 80+ specialized functions, check out our [**Slash Commands Wiki**](./SLASH_COMMANDS.md).
-
+> **View all commands**: Check out [**Slash Commands Wiki**](./SLASH_COMMANDS.md) or your project's auto-generated `PILO_WIKI.md`.
 
 ---
 
-## 🇻🇳 Phiên bản Tiếng Việt
+## 🇻🇳 Tiếng Việt
 
 ### 🎯 Mục đích dự án
 
-`Pilo Masterkit` được thiết kế để biến một AI Coding Assistant thông thường thành một **Đội ngũ Đặc nhiệm AI (AI Task Force)** có kỷ luật. Công cụ này thiết lập "não bộ" tập trung ngay tại môi trường phát triển của bạn. Định hướng AI làm việc chuẩn quy trình và đạt đẳng cấp chất lượng mã nguồn cao.
+`Pilo Masterkit` biến một AI Coding Assistant thông thường thành **Đội ngũ Đặc nhiệm AI (AI Task Force)** có kỷ luật. Công cụ này thiết lập "não bộ" tập trung ngay tại môi trường phát triển của bạn.
 
 ### ✨ Tính năng chính
 
-- **Môi trường Làm việc Sạch**: Tự động dọn dẹp và khởi tạo cấu trúc thư mục sẵn sàng làm việc (Docs, Tasks, Plans...).
-- **Tệp Cấu hình Động**: Sinh ra file `GEMINI.md`, `CLAUDE.md` hoặc `AGENTS.md` bản địa hóa 100% tiếng Việt.
-- **Giao diện CLI Tương tác 2.0**: Trải nghiệm khởi tạo chuyên nghiệp với bảng tổng kết và tiến độ trực quan.
-- **Cá nhân hóa Trigger**: Đặt tên AI Agent riêng (Mặc định: **Pilo**) và giao dịch ngôn ngữ mẹ đẻ (Hey Pilo, Chào Pilo...).
-- **Tri thức Chuyên gia (Skills)**: Bắt buộc AI tuân thủ Clean Code, Security và UI/UX Pro Max cao cấp.
+- **Môi trường Làm việc Sạch**: Tự động khởi tạo cấu trúc thư mục sẵn sàng làm việc (Docs, Tasks, Plans...).
+- **Tệp Cấu hình Động**: Sinh ra file `GEMINI.md`, `CLAUDE.md` hoặc `AGENTS.md` bản địa hóa 100%.
+- **Giao diện CLI v2.2**: Trình hướng dẫn tương tác với 8 loại sản phẩm, nền tảng triển khai và trigger cá nhân hóa.
+- **Wiki Tự động**: `PILO_WIKI.md` được tạo tự động với các lệnh slash phù hợp Stack và Deploy của bạn.
+- **Nền tảng Triển khai**: Chọn Vercel, GitHub Pages, Docker hoặc Tùy chọn — Agent sẽ tối ưu hóa theo.
+- **Song ngữ 100%**: Toàn bộ CLI, AI hosts và tài liệu hỗ trợ Tiếng Anh và Tiếng Việt.
 
 ### 🚀 Hướng dẫn nhanh
 
-Để cài đặt bộ khung quy tắc:
-
 ```bash
+# Chế độ tương tác (khuyên dùng)
 npx @heyai-rules/pilo-masterkit@latest init
+
+# Phi tương tác: chọn stack
+npx @heyai-rules/pilo-masterkit@latest --stack=typescript,mobile --ai=gemini --locale=vi
+
+# Phi tương tác: cài đầy đủ
+npx @heyai-rules/pilo-masterkit@latest --profile all
 ```
 
-*Lưu ý: Có thể sử dụng `--profile all` để cài đặt đầy đủ hoặc `--stack <name> --ai <host>` để bỏ qua tương tác.*
+_Lưu ý: Có thể sử dụng `--profile all` để cài đặt đầy đủ hoặc `--stack <name> --ai <host>` để bỏ qua tương tác._
 
 ### 🎮 Lệnh Hệ Thống (Slash Commands)
 
-Sử dụng sức mạnh tự động hóa qua các lệnh slash cho AI Agent:
-
 #### **Quy trình Lõi:**
+
 - `/plan` - Lập kế hoạch chi tiết, đánh giá rủi ro trước khi thực thi.
 - `/status` - Kiểm tra trạng thái Agent và tiến độ công việc.
+- `/debug` - Tìm lỗi có hệ thống với bảng nguyên nhân gốc.
 - `/tdd` - Phát triển hướng kiểm thử (Test-Driven Development).
-- `/debug` - Chế độ tìm lỗi có hệ thống với bảng nguyên nhân gốc.
-- `/clean-memory` - Tự động đánh giá và dọn dẹp bộ nhớ/ngữ cảnh tránh "loãng" bộ nhớ.
+- `/clean-memory` - Dọn dẹp bộ nhớ/ngữ cảnh tránh "loãng" bộ nhớ.
+- `/code-review` - Đánh giá mã nguồn chuẩn chất lượng cao.
 
-#### **Phát triển Tính năng:**
-- `/ui-ux-pro-max` - Triển khai và tái hiện giao diện chuẩn mực.
-- `/enhance` - Nâng cấp tính năng hiện có.
+#### **Phát triển & Triển khai:**
+
+- `/ui-ux-pro-max` - Thiết kế giao diện chuẩn mực.
 - `/create` - Khởi tạo luồng ứng dụng mới.
-- `/deploy` - Hỗ trợ chuẩn bị trước quá trình phát hành (release).
+- `/enhance` - Nâng cấp tính năng hiện có.
+- `/deploy` - Triển khai lên nền tảng đã chọn (Vercel, GitHub Pages, Docker...).
 
 #### **Review & Tối ưu Mã:**
-- `/cpp-review`, `/rust-review`, `/go-review`, `/python-review`, `/kotlin-review` - Review code sâu theo từng đặc thù ngôn ngữ nhằm đảm bảo an toàn bộ nhớ và hiệu suất.
+
+- `/cpp-review`, `/rust-review`, `/go-review`, `/python-review`, `/kotlin-review`, `/flutter-review` - Review code sâu theo từng đặc thù ngôn ngữ.
 
 > [!IMPORTANT]
-> **Toàn bộ hệ thống lệnh**: Để xem danh sách đầy đủ hơn 80 chức năng chuyên sâu, vui lòng truy cập tại [**Slash Commands Wiki**](./SLASH_COMMANDS.md).
+> **Toàn bộ hệ thống lệnh**: Xem [**Slash Commands Wiki**](./SLASH_COMMANDS.md) hoặc file `PILO_WIKI.md` được tạo tự động trong dự án.
 
 ---
 
-
 ## 🤝 Community & Contributing
 
-Dự án này là mã nguồn mở và chúng tôi vinh danh mọi đóng góp để cải thiện hệ sinh thái AI.  
-*This project is open-source and we welcome all contributions.*
+Dự án này là mã nguồn mở và chúng tôi vinh danh mọi đóng góp để cải thiện hệ sinh thái AI.
+_This project is open-source and we welcome all contributions._
 
 - **[Giấy phép / License](LICENSE)**
 
