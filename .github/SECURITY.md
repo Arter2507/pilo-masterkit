@@ -15,8 +15,8 @@ Chúng tôi chỉ cung cấp các bản cập nhật bảo mật cho phiên bả
 **KHÔNG mở issue công khai.** Nếu bạn tìm thấy lỗ hổng bảo mật, vui lòng báo cáo riêng tư để đảm bảo an toàn cho người dùng của chúng tôi.
 (Do NOT open a public issue. If you find a security vulnerability, please report it privately to ensure the safety of our users.)
 
-Vui lòng gửi báo cáo của bạn tới: **qtuong.257@gmail.com** với các thông tin sau:
-(Please send your report to **qtuong.257@gmail.com** with the following information:)
+Vui lòng gửi báo cáo của bạn tới: **toquangtuong250703.it+pilo@gmail.com** với các thông tin sau:
+(Please send your report to ***toquangtuong250703.it+pilo@gmail.com** with the following information:)
 - Mô tả về lỗ hổng. (Description of the vulnerability.)
 - Các bước để tái hiện. (Steps to reproduce.)
 - Tác động tiềm tàng. (Potential impact.)
