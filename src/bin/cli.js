@@ -17,7 +17,7 @@ const { spawnSync } = require("node:child_process");
 const installer = require("../lib/installer");
 
 /**
- * Translations
+ * Translations (Bilingual i18n)
  */
 const i18n = {
   vi: {
@@ -36,18 +36,40 @@ const i18n = {
     scopeMedium: "Doanh nghiệp vừa",
     scopeEnterprise: "Tập đoàn/Hệ thống lớn",
     typeQuestion: "Loại sản phẩm?",
-    typeWeb: "Ứng dụng Web (Fullstack/Frontend)",
-    typeApi: "Hệ thống API / Backend",
-    typeMobile: "Ứng dụng Di động",
-    typeLib: "Thư viện / Công cụ (SDK)",
-    typeResearch: "Nghiên cứu / Phân tích dữ liệu",
+    typeLanding: "Landing Page / Trang tĩnh",
+    typeLandingHint: "Trang giới thiệu, portfolio, chỉ Frontend",
+    typeWebapp: "Webapp Tiêu chuẩn (Fullstack)",
+    typeWebappHint: "Dashboard, SaaS, CMS, Ecommerce",
+    typeCross: "Hệ sinh thái Đa nền tảng",
+    typeCrossHint: "Web + Mobile + Desktop dùng chung dữ liệu",
+    typeDesktop: "Ứng dụng Desktop (Windows/macOS)",
+    typeDesktopHint: "Electron, Tauri, ứng dụng cài đặt",
+    typeMobile: "Ứng dụng Di động (Native/Hybrid)",
+    typeMobileHint: "Flutter, React Native, SwiftUI",
+    typeApi: "API & Backend Hub",
+    typeApiHint: "Microservices, Serverless, REST/GraphQL",
+    typeLib: "Công cụ & Thư viện (SDK/CLI)",
+    typeLibHint: "Package dùng chung, DevTools, CLI",
+    typeResearch: "Nghiên cứu & Phân tích dữ liệu",
+    typeResearchHint: "Data Science, Machine Learning, Reports",
+    deployQuestion: "Nền tảng triển khai mục tiêu?",
+    deployVercel: "Vercel",
+    deployVercelHint: "Chuẩn cho Next.js, React, Static sites",
+    deployGhPages: "GitHub Pages",
+    deployGhPagesHint: "Hosting miễn phí cho các trang tĩnh",
+    deployDocker: "Docker / Container",
+    deployDockerHint: "Đóng gói cho Cloud/VPS/Kubernetes",
+    deployCustom: "Tùy chọn (Tự thiết lập)",
+    deployCustomHint: "Agent sẽ hỗ trợ hướng dẫn tổng quát",
     nameQuestion: "Đặt tên cho AI Agent của bạn? (Mặc định: Pilo)",
     namePlaceholder: "Pilo",
     installing: "Đang mapping kiến trúc dự án...",
     calibrating: "Đang hiệu chuẩn các gói AI Host...",
     optimizing: "Đang tối ưu hóa quy trình vận hành...",
+    generatingWiki: "Đang khởi tạo Wiki lệnh tùy chỉnh...",
     ready: "Giao thức vận hành đã được khởi tạo. Lực lượng đặc nhiệm AI của bạn đã trực tuyến.",
-    readReadme: "Đọc README.md để khám phá các Slash Command có sẵn.",
+    activateAgent: (name) => `Kích hoạt Agent bằng cách gọi: '${pc.bold(pc.cyan(`Chào ${name}`))}' hoặc '${pc.bold(pc.cyan(`Wakeup ${name}`))}' để bắt đầu phiên làm việc.`,
+    wikiReady: "Xem PILO_WIKI.md để tra cứu toàn bộ Slash Commands dành riêng cho dự án của bạn.",
     done: "Hoàn tất!",
     summaryTitle: "TỔNG KẾT TRIỂN KHAI",
     systemReady: "HỆ THỐNG SẴN SÀNG",
@@ -70,18 +92,40 @@ const i18n = {
     scopeMedium: "Medium Enterprise",
     scopeEnterprise: "Large Enterprise/System",
     typeQuestion: "Product Type?",
-    typeWeb: "Web Application",
-    typeApi: "API / Backend System",
-    typeMobile: "Mobile Application",
-    typeLib: "Library / SDK",
-    typeResearch: "Research / Data Analysis",
+    typeLanding: "Landing Page / Static Site",
+    typeLandingHint: "Portfolio, showcase, frontend-only",
+    typeWebapp: "Standard Webapp (Fullstack)",
+    typeWebappHint: "Dashboard, SaaS, CMS, Ecommerce",
+    typeCross: "Cross-Platform Suite",
+    typeCrossHint: "Web + Mobile + Desktop sharing data",
+    typeDesktop: "Desktop Application (Windows/macOS)",
+    typeDesktopHint: "Electron, Tauri, installable apps",
+    typeMobile: "Mobile Application (Native/Hybrid)",
+    typeMobileHint: "Flutter, React Native, SwiftUI",
+    typeApi: "API & Backend Hub",
+    typeApiHint: "Microservices, Serverless, REST/GraphQL",
+    typeLib: "Library & Tools (SDK/CLI)",
+    typeLibHint: "Shared packages, DevTools, CLI",
+    typeResearch: "Research & Data Analysis",
+    typeResearchHint: "Data Science, Machine Learning, Reports",
+    deployQuestion: "Target Deployment Platform?",
+    deployVercel: "Vercel",
+    deployVercelHint: "Best for Next.js, React, Static sites",
+    deployGhPages: "GitHub Pages",
+    deployGhPagesHint: "Free hosting for static sites",
+    deployDocker: "Docker / Container",
+    deployDockerHint: "Package for Cloud/VPS/Kubernetes",
+    deployCustom: "Custom (Self-managed)",
+    deployCustomHint: "Agent will provide general guidance",
     nameQuestion: "Name your AI Agent? (Default: Pilo)",
     namePlaceholder: "Pilo",
     installing: "Mapping project architecture...",
     calibrating: "Calibrating AI Host bundles...",
     optimizing: "Optimizing operational workflows...",
+    generatingWiki: "Generating custom command wiki...",
     ready: "Operational protocol initialized. Your AI Task Force is now online.",
-    readReadme: "Read README.md to explore available Slash Commands.",
+    activateAgent: (name) => `Activate your Agent by calling: '${pc.bold(pc.cyan(`Hey ${name}`))}' or '${pc.bold(pc.cyan(`Wakeup ${name}`))}' to start the session.`,
+    wikiReady: "Check PILO_WIKI.md for a full list of Slash Commands tailored to your project.",
     done: "Done!",
     summaryTitle: "DEPLOYMENT SUMMARY",
     systemReady: "SYSTEM READY",
@@ -100,7 +144,7 @@ function printBanner() {
   console.log(pc.magenta("   ██╔═══╝ ██║██║     ██║   ██║    ██║╚██╔╝██║██╔══██║╚════██║   ██║   ██╔══╝  ██╔══██╗"))
   console.log(pc.magenta("   ██║     ██║███████╗╚██████╔╝    ██║ ╚═╝ ██║██║  ██║███████║   ██║   ███████╗██║  ██║"))
   console.log(pc.magenta("   ╚═╝     ╚═╝╚══════╝ ╚═════╝     ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝"))
-  console.log(pc.bold(pc.cyan("\n                       SYSTEM INITIALIZER v2.1\n")));
+  console.log(pc.bold(pc.cyan("\n                       SYSTEM INITIALIZER v2.2\n")));
 }
 
 /**
@@ -202,23 +246,28 @@ async function runWizard(options) {
   if (isCancel(mode)) return cancel(t.shutdown);
 
   if (mode === 'all') {
-    return { mode: 'all', locale };
+    // Even in 'all' mode, ask for agent name for personalized outro
+    const agentName = await text({
+      message: t.nameQuestion,
+      placeholder: t.namePlaceholder,
+      defaultValue: t.namePlaceholder
+    });
+    if (isCancel(agentName)) return cancel(t.shutdown);
+    return { mode: 'all', locale, agentName };
   }
 
   const stack = await multiselect({
     message: t.stackQuestion,
     options: [
-      { value: "typescript", label: "TypeScript Ecosystem", hint: "React / Next / Node" },
-      { value: "python", label: "Python AI & Data", hint: "FastAPI / PyTorch" },
-      { value: "ai_agentic", label: "Agentic Engineering", hint: "MCP / Autonomy" },
-      { value: "rust", label: "Rust Systems", hint: "Cargo / High Performance" },
-      { value: "laravel", label: "Laravel PHP", hint: "Modern Backend" },
-      { value: "mobile", label: "Cross-Platform Mobile", hint: "Flutter / SwiftUI" },
-      { value: "cpp", label: "C++ Low Level", hint: "Performance Critical" },
-      { value: "java", label: "Enterprise Java", hint: "Spring Boot" },
-      { value: "kotlin", label: "Kotlin/JVM", hint: "Modern App Dev" },
-      { value: "go", label: "Go Microservices", hint: "Cloud Native" },
-      { value: "marketing_research", label: "Deep Research", hint: "Analysis & Content" },
+      { value: "typescript", label: "TypeScript Standard", hint: "React, Next.js, Node.js (Fullstack)" },
+      { value: "python", label: "Python Intelligence", hint: "FastAPI, PyTorch, LangChain" },
+      { value: "ai_agentic", label: "Agentic Engineering", hint: "MCP, Claude SDK, Autonomy" },
+      { value: "rust", label: "Rust/C++ Engineering", hint: "High-performance systems" },
+      { value: "laravel", label: "PHP Modern (Laravel)", hint: "Web backend, APIs" },
+      { value: "mobile", label: "Mobile Multi-platform", hint: "Flutter, React Native, SwiftUI" },
+      { value: "java", label: "Java/Kotlin Enterprise", hint: "Spring Boot, Ktor, Microservices" },
+      { value: "go", label: "Go Cloud Services", hint: "Microservices, Cloud-native" },
+      { value: "marketing_research", label: "Deep Research & Content", hint: "Analysis, SEO, Market Intel" },
     ],
     required: true,
   });
@@ -237,7 +286,6 @@ async function runWizard(options) {
   });
   if (isCancel(aiHost)) return cancel(t.shutdown);
 
-  // Missing Steps Added
   const scope = await select({
     message: t.scopeQuestion,
     options: [
@@ -252,14 +300,28 @@ async function runWizard(options) {
   const type = await select({
     message: t.typeQuestion,
     options: [
-      { value: "web", label: t.typeWeb },
-      { value: "api", label: t.typeApi },
-      { value: "mobile", label: t.typeMobile },
-      { value: "library", label: t.typeLib },
-      { value: "research", label: t.typeResearch },
+      { value: "landing", label: t.typeLanding, hint: t.typeLandingHint },
+      { value: "webapp", label: t.typeWebapp, hint: t.typeWebappHint },
+      { value: "cross_platform", label: t.typeCross, hint: t.typeCrossHint },
+      { value: "desktop", label: t.typeDesktop, hint: t.typeDesktopHint },
+      { value: "mobile", label: t.typeMobile, hint: t.typeMobileHint },
+      { value: "api", label: t.typeApi, hint: t.typeApiHint },
+      { value: "library", label: t.typeLib, hint: t.typeLibHint },
+      { value: "research", label: t.typeResearch, hint: t.typeResearchHint },
     ]
   });
   if (isCancel(type)) return cancel(t.shutdown);
+
+  const deploy = await select({
+    message: t.deployQuestion,
+    options: [
+      { value: "vercel", label: t.deployVercel, hint: t.deployVercelHint },
+      { value: "gh_pages", label: t.deployGhPages, hint: t.deployGhPagesHint },
+      { value: "docker", label: t.deployDocker, hint: t.deployDockerHint },
+      { value: "custom", label: t.deployCustom, hint: t.deployCustomHint },
+    ]
+  });
+  if (isCancel(deploy)) return cancel(t.shutdown);
 
   const agentName = await text({
     message: t.nameQuestion,
@@ -268,7 +330,7 @@ async function runWizard(options) {
   });
   if (isCancel(agentName)) return cancel(t.shutdown);
 
-  return { mode: 'selective', locale, stack, aiHost, scope, type, agentName };
+  return { mode: 'selective', locale, stack, aiHost, scope, type, deploy, agentName };
 }
 
 /**
@@ -289,6 +351,9 @@ function printSummary(config, targetDir, t) {
   if (config.agentName) {
     console.log(`${pc.dim("│")}  Agent   : ${pc.white(config.agentName).padEnd(50)} ${pc.dim("│")}`);
   }
+  if (config.deploy) {
+    console.log(`${pc.dim("│")}  Deploy  : ${pc.blue(config.deploy.toUpperCase()).padEnd(50)} ${pc.dim("│")}`);
+  }
   console.log(`${pc.dim("│")}  Target  : ${pc.dim(targetDir).padEnd(50)} ${pc.dim("│")}`);
   console.log(pc.dim("└──────────────────────────────────────────────────────────┘\n"));
 }
@@ -307,18 +372,19 @@ async function main() {
   let config;
   if (options.profile === 'all') {
     printBanner();
-    config = { mode: 'all', locale: options.locale };
+    config = { mode: 'all', locale: options.locale, agentName: 'Pilo' };
   } else if (options.stack && options.aiHost) {
-    config = { mode: 'selective', stack: options.stack, aiHost: options.aiHost, locale: options.locale };
+    config = { mode: 'selective', stack: options.stack, aiHost: options.aiHost, locale: options.locale, agentName: 'Pilo' };
   } else if (!options.template && options.profile !== 'all') {
     const result = await runWizard(options);
     if (!result) return;
     config = result;
   } else {
-    config = { mode: 'selective', stack: options.stack || ['typescript'], aiHost: options.aiHost || 'claude', locale: options.locale };
+    config = { mode: 'selective', stack: options.stack || ['typescript'], aiHost: options.aiHost || 'claude', locale: options.locale, agentName: 'Pilo' };
   }
 
   const activeT = i18n[config.locale] || i18n.vi;
+  const agentName = config.agentName || 'Pilo';
   const s = spinner();
   
   const steps = [
@@ -330,7 +396,10 @@ async function main() {
       }
     }},
     { msg: activeT.calibrating, action: async () => {} },
-    { msg: activeT.optimizing, action: async () => {} }
+    { msg: activeT.optimizing, action: async () => {} },
+    { msg: activeT.generatingWiki, action: async () => {
+      await installer.generateWiki(targetDir, config);
+    }}
   ];
 
   for (const step of steps) {
@@ -344,7 +413,8 @@ async function main() {
   
   note(
     pc.white(activeT.ready + "\n") + 
-    pc.bold(pc.yellow(activeT.readReadme)),
+    pc.bold(pc.yellow(activeT.activateAgent(agentName))) + "\n" +
+    pc.dim(activeT.wikiReady),
     activeT.systemReady
   );
 
