@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/Arter2507/pilo-masterkit/compare/v3.0.0...v3.1.0) (2026-04-04)
+
+
+### Features
+
+* **cli:** v2.2 - expanded product types, deploy target, personalized outro, bilingual wiki generator ([2859d93](https://github.com/Arter2507/pilo-masterkit/commit/2859d9349ddea8d4c3f3cac66d23b0af901c45ca))
+
 # [3.0.0](https://github.com/Arter2507/pilo-masterkit/compare/v2.0.0...v3.0.0) (2026-04-03)
 
 
