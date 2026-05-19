@@ -32,9 +32,9 @@ Leverage full skills in `.agent/skills/`.
 - **/status**: View progress.
 - **/debug**: Deep system debugging.
 
-## 📚 Shared Standards (Auto-Activated)
-Following Standards in `.agent/rules/` must be followed:
-${moduleList}
+## 🗺️ Project Map (Operational Compass)
+All instructions, rules, directory structures, skills, and Slash Commands are centrally defined in **`PROJECT_MAP.md`**.
+Always read `PROJECT_MAP.md` first to make decisions and select appropriate skills.
 
 ---
 *© 2026 Pilo Masterkit - Orchestrating the future with discipline and soul.*

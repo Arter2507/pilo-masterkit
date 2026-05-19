@@ -38,19 +38,9 @@ Please utilize the skills most relevant to **${productType}**.
 - Multi-language code analysis and refactoring
 - System testing and debugging
 
-## 📚 Shared Standards (Auto-Activated)
-The following Modules in `.agent/rules/` must be strictly followed:
-${moduleList}
-
-## ⌨️ Slash Command System (Auto-Activated)
-> **System Instruction**: Workflows are located in `.agent/workflows/`. When the user calls a slash command, YOU MUST read the corresponding `.md` file to execute.
-
-Example operational commands:
-- **/plan**: Detailed planning before implementation.
-- **/debug**: Systematic root-cause debugging.
-- **/ui-ux-pro-max**: Premium Visuals & Motion design.
-- **/status**: Project progress and Agent health reports.
-- **/clean-memory**: Context cleanup and compression.
+## 🗺️ Project Map (Operational Compass)
+All instructions, rules, directory structures, skills, and Slash Commands are centrally defined in **`PROJECT_MAP.md`**.
+Always read `PROJECT_MAP.md` first to make decisions and select appropriate skills.
 
 ---
 *© 2026 Pilo Masterkit - Orchestrating the future with discipline and soul.*

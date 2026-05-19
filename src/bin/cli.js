@@ -61,19 +61,21 @@ const i18n = {
     deployDockerHint: "Đóng gói cho Cloud/VPS/Kubernetes",
     deployCustom: "Tùy chọn (Tự thiết lập)",
     deployCustomHint: "Agent sẽ hỗ trợ hướng dẫn tổng quát",
-    nameQuestion: "Đặt tên cho AI Agent của bạn? (Mặc định: Pilo)",
-    namePlaceholder: "Pilo",
+    nameQuestion: "Đặt tên cho AI Agent của bạn? (Mặc định: AI)",
+    namePlaceholder: "AI",
     installing: "Đang mapping kiến trúc dự án...",
     calibrating: "Đang hiệu chuẩn các gói AI Host...",
     optimizing: "Đang tối ưu hóa quy trình vận hành...",
-    generatingWiki: "Đang khởi tạo Wiki lệnh tùy chỉnh...",
+    generatingProjectMap: "Đang khởi tạo Bản đồ dự án (PROJECT_MAP.md)...",
     ready: "Giao thức vận hành đã được khởi tạo. Lực lượng đặc nhiệm AI của bạn đã trực tuyến.",
     activateAgent: (name) => `Kích hoạt Agent bằng cách gọi: '${pc.bold(pc.cyan(`Chào ${name}`))}' hoặc '${pc.bold(pc.cyan(`Wakeup ${name}`))}' để bắt đầu phiên làm việc.`,
-    wikiReady: "Xem PILO_WIKI.md để tra cứu toàn bộ Slash Commands dành riêng cho dự án của bạn.",
+    wikiReady: "Xem PROJECT_MAP.md để tra cứu toàn bộ Slash Commands và bản đồ chỉ dẫn dự án của bạn.",
     done: "Hoàn tất!",
     summaryTitle: "TỔNG KẾT TRIỂN KHAI",
     systemReady: "HỆ THỐNG SẴN SÀNG",
     shutdown: "Hệ thống dừng.",
+    uiUxProMaxQuestion: "Tích hợp UI/UX Pro Max Skill nâng cao? (45KB tri thức thiết kế chuyên sâu)",
+    refDesignQuestion: "Chọn các Bản thiết kế Hệ thống tham khảo để AI học hỏi? (Space để chọn, Enter bỏ qua):",
     outro: "⚡ ĐIỀU PHỐI TƯƠNG LAI VỚI KỶ LUẬT VÀ TÂM HỒN ⚡"
   },
   en: {
@@ -117,19 +119,21 @@ const i18n = {
     deployDockerHint: "Package for Cloud/VPS/Kubernetes",
     deployCustom: "Custom (Self-managed)",
     deployCustomHint: "Agent will provide general guidance",
-    nameQuestion: "Name your AI Agent? (Default: Pilo)",
-    namePlaceholder: "Pilo",
+    nameQuestion: "Name your AI Agent? (Default: AI)",
+    namePlaceholder: "AI",
     installing: "Mapping project architecture...",
     calibrating: "Calibrating AI Host bundles...",
     optimizing: "Optimizing operational workflows...",
-    generatingWiki: "Generating custom command wiki...",
+    generatingProjectMap: "Generating dynamic PROJECT_MAP.md...",
     ready: "Operational protocol initialized. Your AI Task Force is now online.",
     activateAgent: (name) => `Activate your Agent by calling: '${pc.bold(pc.cyan(`Hey ${name}`))}' or '${pc.bold(pc.cyan(`Wakeup ${name}`))}' to start the session.`,
-    wikiReady: "Check PILO_WIKI.md for a full list of Slash Commands tailored to your project.",
+    wikiReady: "Check PROJECT_MAP.md for your personalized Agent operational map.",
     done: "Done!",
     summaryTitle: "DEPLOYMENT SUMMARY",
     systemReady: "SYSTEM READY",
     shutdown: "System shutdown.",
+    uiUxProMaxQuestion: "Integrate advanced UI/UX Pro Max Skill? (45KB deep design knowledge)",
+    refDesignQuestion: "Select Reference System Designs for AI learning? (Space to select, Enter to skip):",
     outro: "⚡ ORCHESTRATING THE FUTURE WITH DISCIPLINE AND SOUL ⚡"
   }
 };
@@ -253,7 +257,7 @@ async function runWizard(options) {
       defaultValue: t.namePlaceholder
     });
     if (isCancel(agentName)) return cancel(t.shutdown);
-    return { mode: 'all', locale, agentName };
+    return { mode: 'all', locale, agentName, uiUxProMax: true, referenceDesigns: ['notion', 'linear', 'stripe', 'supabase', 'vercel', 'claude', 'apple', 'spacex'] };
   }
 
   const stack = await multiselect({
@@ -372,19 +376,19 @@ async function main() {
   let config;
   if (options.profile === 'all') {
     printBanner();
-    config = { mode: 'all', locale: options.locale, agentName: 'Pilo' };
+    config = { mode: 'all', locale: options.locale, agentName: 'AI' };
   } else if (options.stack && options.aiHost) {
-    config = { mode: 'selective', stack: options.stack, aiHost: options.aiHost, locale: options.locale, agentName: 'Pilo' };
+    config = { mode: 'selective', stack: options.stack, aiHost: options.aiHost, locale: options.locale, agentName: 'AI' };
   } else if (!options.template && options.profile !== 'all') {
     const result = await runWizard(options);
     if (!result) return;
     config = result;
   } else {
-    config = { mode: 'selective', stack: options.stack || ['typescript'], aiHost: options.aiHost || 'claude', locale: options.locale, agentName: 'Pilo' };
+    config = { mode: 'selective', stack: options.stack || ['typescript'], aiHost: options.aiHost || 'claude', locale: options.locale, agentName: 'AI' };
   }
 
   const activeT = i18n[config.locale] || i18n.vi;
-  const agentName = config.agentName || 'Pilo';
+  const agentName = config.agentName || 'AI';
   const s = spinner();
   
   const steps = [
@@ -397,8 +401,8 @@ async function main() {
     }},
     { msg: activeT.calibrating, action: async () => {} },
     { msg: activeT.optimizing, action: async () => {} },
-    { msg: activeT.generatingWiki, action: async () => {
-      await installer.generateWiki(targetDir, config);
+    { msg: activeT.generatingProjectMap, action: async () => {
+      await installer.generateProjectMap(targetDir, config);
     }}
   ];
 

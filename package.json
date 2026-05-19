@@ -1,6 +1,6 @@
 {
   "name": "@heyai-rules/pilo-masterkit",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "description": "The Ultimate AI Agent Scaffolding & Ruleset Orchestrator. Build standardized Agentic Workflows with bilingual (VI/EN) support, auto-Wiki & MCP-ready CLI.",
   "keywords": [
     "ai-agents",
@@ -42,7 +42,9 @@
   },
   "files": [
     "src",
-    ".agent",
+    ".agent/skills",
+    ".agent/references",
+    ".agent/contexts",
     "README.md",
     "RELEASE.md",
     "SLASH_COMMANDS.md",

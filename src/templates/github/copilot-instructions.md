@@ -1,7 +1,7 @@
-# Pilo Masterkit - GitHub Copilot Instructions
+# AI Masterkit - GitHub Copilot Instructions
 
 ## Project Context
-This repo uses **Pilo Masterkit**. Automated instructions and standards are located in `.agent/`.
+This repo uses **AI Masterkit**. Automated instructions and standards are located in `.agent/`.
 
 ## Core Standards
 - Follow the PDCA workflow for all tasks.

@@ -67,27 +67,29 @@ _Note: You can also use `--profile all` for or `--stack <name> --ai <host>` for 
 
 ### 🎮 Slash Commands
 
-You have access to a rich set of built-in commands for your AI:
+You have access to a rich set of built-in commands for your AI, powered by the **Ultimate Core Skill Pack**:
 
-#### **Core Utilities:**
+#### **Core Lifecycle:**
 
-- `/plan` - Create detailed implementation plan with risk assessment.
-- `/status` - Display agent and project status.
-- `/debug` - Systematic debugging with root cause analysis.
-- `/tdd` - Strict Test-Driven Development protocol.
-- `/clean-memory` - Clean AI Agent's memory/context to avoid bloat.
-- `/code-review` - High-standard code review.
+- `/brainstorm` - Apply Socratic Gate to clarify vague requests.
+- `/spec` - Write a detailed PRD/Spec before writing code.
+- `/plan` - Decompose Spec into actionable, vertical-slice tasks.
+- `/build` - Implement code in safe, incremental slices.
+- `/test` - Ensure behavior is verified (Red-Green-Refactor).
 
-#### **Development & Deploy:**
+#### **Quality & Validation:**
 
-- `/ui-ux-pro-max` - Plan and implement top-tier UI/UX.
-- `/create` - Create new application functions.
-- `/enhance` - Add or update features in existing applications.
-- `/deploy` - Deploy to your chosen platform (Vercel, GitHub Pages, Docker...).
+- `/doubt` - Adversarial self-review to prevent hallucinations/bugs.
+- `/debug` - Systematic 5-step triage for resolving errors.
+- `/review` - Rigorous 5-axis code quality review.
+- `/simplify` - Refactor complex code to improve readability.
 
-#### **Code Review & Quality:**
+#### **Deployment & Environment:**
 
-- `/cpp-review`, `/rust-review`, `/go-review`, `/python-review`, `/kotlin-review`, `/flutter-review` - Deep, language-specific code reviews.
+- `/ui` - Apply premium UI/UX standards and Markdown aesthetics.
+- `/commit` - Manage atomic commits and version history.
+- `/ship` - Pre-flight checks and safe deployment procedures.
+- `/clean` - Clear memory bloat and save context state.
 
 > [!IMPORTANT]
 > **View all commands**: Check out [**Slash Commands Wiki**](./SLASH_COMMANDS.md) or your project's auto-generated `PILO_WIKI.md`.
@@ -126,25 +128,29 @@ _Lưu ý: Có thể sử dụng `--profile all` để cài đặt đầy đủ h
 
 ### 🎮 Lệnh Hệ Thống (Slash Commands)
 
-#### **Quy trình Lõi:**
+Điều khiển AI Agent thông qua **Bộ Kỹ Năng Lõi Tối Thượng (Ultimate Core Skill Pack)**:
 
-- `/plan` - Lập kế hoạch chi tiết, đánh giá rủi ro trước khi thực thi.
-- `/status` - Kiểm tra trạng thái Agent và tiến độ công việc.
-- `/debug` - Tìm lỗi có hệ thống với bảng nguyên nhân gốc.
-- `/tdd` - Phát triển hướng kiểm thử (Test-Driven Development).
-- `/clean-memory` - Dọn dẹp bộ nhớ/ngữ cảnh tránh "loãng" bộ nhớ.
-- `/code-review` - Đánh giá mã nguồn chuẩn chất lượng cao.
+#### **Vòng Đời Cốt Lõi (PDCA):**
 
-#### **Phát triển & Triển khai:**
+- `/brainstorm` - Động não và làm rõ yêu cầu mơ hồ bằng Socratic Gate.
+- `/spec` - Viết tài liệu đặc tả (Spec) trước khi code.
+- `/plan` - Phân rã Spec thành các tác vụ nhỏ theo lát cắt dọc.
+- `/build` - Triển khai mã nguồn theo từng bước an toàn.
+- `/test` - Viết kiểm thử đảm bảo hành vi hệ thống (TDD).
 
-- `/ui-ux-pro-max` - Thiết kế giao diện chuẩn mực.
-- `/create` - Khởi tạo luồng ứng dụng mới.
-- `/enhance` - Nâng cấp tính năng hiện có.
-- `/deploy` - Triển khai lên nền tảng đã chọn (Vercel, GitHub Pages, Docker...).
+#### **Kiểm Định & Chất Lượng:**
 
-#### **Review & Tối ưu Mã:**
+- `/doubt` - Tư duy phản biện để chống ảo giác/lỗi logic.
+- `/debug` - Quy trình 5 bước gỡ lỗi có hệ thống.
+- `/review` - Đánh giá chất lượng mã nguồn trên 5 phương diện.
+- `/simplify` - Đơn giản hóa mã nguồn phức tạp (Refactoring).
 
-- `/cpp-review`, `/rust-review`, `/go-review`, `/python-review`, `/kotlin-review`, `/flutter-review` - Review code sâu theo từng đặc thù ngôn ngữ.
+#### **Môi Trường & Triển Khai:**
+
+- `/ui` - Thiết kế giao diện và tài liệu đạt chuẩn cao cấp.
+- `/commit` - Quản lý commit atomic và lịch sử phiên bản.
+- `/ship` - Kiểm tra trước khi ra mắt và triển khai an toàn.
+- `/clean` - Dọn dẹp ngữ cảnh để tránh tràn bộ nhớ.
 
 > [!IMPORTANT]
 > **Toàn bộ hệ thống lệnh**: Xem [**Slash Commands Wiki**](./SLASH_COMMANDS.md) hoặc file `PILO_WIKI.md` được tạo tự động trong dự án.

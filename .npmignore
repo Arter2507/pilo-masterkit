@@ -29,3 +29,6 @@ tsconfig.json
 
 # Tasks & Local workflow
 task/
+
+# Legacy Agent Files
+.agent/legacy/

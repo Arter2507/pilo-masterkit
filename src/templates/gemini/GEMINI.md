@@ -38,19 +38,9 @@ Vui lòng sử dụng các kỹ năng phù hợp nhất cho **${productType}**.
 - Phân tích và refactor code đa ngôn ngữ
 - Kiểm thử và gỡ lỗi hệ thống
 
-## 📚 Tiêu chuẩn Dùng chung (Tự động Kích hoạt)
-Các Module sau trong `.agent/rules/` phải được tuân thủ nghiêm ngặt:
-${moduleList}
-
-## ⌨️ Hệ thống lệnh Slash Command (Tự động Kích hoạt)
-> **Chỉ dẫn Hệ thống**: Các quy trình (workflows) nằm trong thư mục `.agent/workflows/`. Khi người dùng gọi lệnh, BẠN PHẢI đọc file `.md` tương ứng để thực thi.
-
-Sử dụng các lệnh tiêu biểu:
-- **/plan**: Lập kế hoạch chi tiết trước khi thực hiện.
-- **/debug**: Sửa lỗi sâu (Root Cause Analysis).
-- **/ui-ux-pro-max**: Thiết kế Visuals & Motion cao cấp.
-- **/status**: Báo cáo tiến độ và trạng thái Agent.
-- **/clean-memory**: Dọn dẹp và nén ngữ cảnh làm việc.
+## 🗺️ Bản Đồ Dự Án (La Bàn Vận Hành)
+Mọi chỉ dẫn, quy tắc, cấu trúc thư mục, kỹ năng (Skills) và lệnh điều khiển (Slash Commands) đều được định nghĩa tập trung tại **`PROJECT_MAP.md`**.
+Hãy luôn đọc `PROJECT_MAP.md` trước tiên để ra quyết định và lựa chọn kỹ năng phù hợp.
 
 ---
 *© 2026 Pilo Masterkit - Orchestrating the future with discipline and soul.*

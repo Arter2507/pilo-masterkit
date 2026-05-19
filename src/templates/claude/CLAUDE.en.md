@@ -27,16 +27,9 @@ ${triggerDisplay}
 Leverage full skills in `.agent/skills/`.
 Please use the skills most relevant to **${productType}**.
 
-## 📚 Shared Standards (Auto-Activated)
-Following Standards in `.agent/rules/` must be followed:
-${moduleList}
-
-## ⌨️ Slash Command System (Auto-Activated)
-Use Slash commands to activate workflows from `.agent/workflows/`.
-- **/plan**: PDCA standard planning.
-- **/status**: View project roadmap.
-- **/debug**: System debugging.
-- **/rules-distill**: Knowledge extraction.
+## 🗺️ Project Map (Operational Compass)
+All instructions, rules, directory structures, skills, and Slash Commands are centrally defined in **`PROJECT_MAP.md`**.
+Always read `PROJECT_MAP.md` first to make decisions and select appropriate skills.
 
 ---
 *© 2026 Pilo Masterkit - Orchestrating the future with discipline and soul.*

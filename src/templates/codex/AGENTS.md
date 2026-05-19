@@ -32,9 +32,9 @@ Tận dụng tối đa các kỹ năng trong `.agent/skills/`.
 - **/status**: Xem tiến độ.
 - **/debug**: Gỡ lỗi sâu.
 
-## 📚 Tiêu chuẩn Dùng chung (Tự động Kích hoạt)
-Các Tiêu chuẩn sau trong `.agent/rules/` phải được tuân thủ:
-${moduleList}
+## 🗺️ Bản Đồ Dự Án (La Bàn Vận Hành)
+Mọi chỉ dẫn, quy tắc, cấu trúc thư mục, kỹ năng (Skills) và lệnh điều khiển (Slash Commands) đều được định nghĩa tập trung tại **`PROJECT_MAP.md`**.
+Hãy luôn đọc `PROJECT_MAP.md` trước tiên để ra quyết định và lựa chọn kỹ năng phù hợp.
 
 ---
 *© 2026 Pilo Masterkit - Orchestrating the future with discipline and soul.*
