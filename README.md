@@ -6,7 +6,7 @@
   <p><b>The ultimate AI Coding Assistant standardizer and workspace initializer.</b></p>
 
 [![NPM version](https://img.shields.io/npm/v/@heyai-rules/pilo-masterkit.svg?style=for-the-badge&color=blue)](https://www.npmjs.com/package/@heyai-rules/pilo-masterkit)
-[![Latest Release](https://img.shields.io/badge/Release-v2.2.0-orange.svg?style=for-the-badge)](https://github.com/Arter2507/pilo-masterkit/releases)
+[![Latest Release](https://img.shields.io/badge/Release-v2.3.0-orange.svg?style=for-the-badge)](https://github.com/Arter2507/pilo-masterkit/releases)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=for-the-badge)](https://opensource.org/licenses/Apache-2.0)
 
 [**English**](#-english) | [**Tiếng Việt**](#-tiếng-việt)
@@ -21,34 +21,33 @@
 
 `Pilo Masterkit` transforms an ordinary AI Coding Assistant into a disciplined **AI Task Force**. It acts as a comprehensive "brain" for your project — solving context loss, enforcing standardized commands, strict development rules, and high-quality design systems.
 
-### ✨ Key Features
+### ✨ Key Features in v2.3.0
 
-- **Project Context Initializer**: Creates a clean directory structure (`docs/tasks`, `docs/plans`, etc.) ready for the AI.
-- **Dynamic AI Host Files**: Generates `GEMINI.md`, `CLAUDE.md`, or `AGENTS.md` fully localized in your chosen language.
-- **Interactive CLI v2.2**: Step-by-step wizard with product type selection, deployment target, and personalized agent triggers.
-- **Auto-Generated Wiki**: `PILO_WIKI.md` is created automatically with slash commands tailored to your stack and deploy target.
-- **Deployment Target**: Choose between Vercel, GitHub Pages, Docker, or custom — the Agent will optimize accordingly.
-- **Bilingual Support**: Full English and Vietnamese localization for CLI, AI hosts, and documentation.
+- **Streamlined Workspace (3 Core Folders)**: Creates a clean directory structure (`docs/plans`, `docs/walkthroughs`, `docs/system-designs`) to prevent context bloat and keep AI fully focused.
+- **Dynamic AI Context Map (`PROJECT_MAP.md`)**: Automatically replaces standard wiki with a dynamic map registering selected tech stacks, deployment guidelines, reference designs, and specific skills.
+- **Standardized AI Rules (`cursor.mdc`)**: Fully updated for Cursor IDE rules with `cursor.mdc` naming and optimized prompts for Claude, Gemini, Copilot, and Codex to prioritize `PROJECT_MAP.md` on startup.
+- **World-Class Reference Architectures**: Embedded library of 71 top-tier tech system designs (Notion, Stripe, Apple, SpaceX, etc.) ready to be copied recursively into `docs/system-designs/reference/` based on user selection.
+- **Advanced UI/UX Pro Max Skill**: Premium design package (45KB ruleset, CSV data, Python scripts) offline-ready to be installed in `.agent/skills/ui-ux-pro-max/` to supercharge AI design aesthetics.
+- **Bilingual Wizard CLI**: Full English and Vietnamese interactive flow supporting personalized agent triggers, stacks, and scope.
 
 ### 🏗️ Workflow Architecture
 
 ```mermaid
 graph TD
-    A["Start: npx @heyai-rules/pilo-masterkit"] --> B[Interactive CLI v2.2]
+    A["Start: npx @heyai-rules/pilo-masterkit"] --> B[Interactive CLI v2.3]
     B --> C{Select Parameters}
     C -->|Language| D[EN / VI]
-    C -->|Product Type| E["Landing Page / Webapp / Cross-Platform / Desktop / Mobile / API / SDK / Research"]
-    C -->|Deploy Target| F["Vercel / GitHub Pages / Docker / Custom"]
-    C -->|Agent Name| G["Personalized Triggers"]
-    D & E & F & G --> H[Generate Workspace + PILO_WIKI.md]
-    H --> I["AI Task Force Ready"]
+    C -->|UI/UX Pro Max| E["Enable Premium Design Skill"]
+    C -->|Reference Designs| F["Select Top-Tier Architectures (Notion, Apple...)"]
+    C -->|Product & Stack| G["Tailored Stack Rules"]
+    D & E & F & G --> H["Generate 3 Core docs/ Folders + cursor.mdc"]
+    H --> I["Inject PROJECT_MAP.md + offline assets"]
+    I --> J["AI Task Force Fully Empowered"]
 ```
 
 ### 📸 CLI in Action
 
-![Pilo Masterkit CLI Wizard - v2.2](docs/assets/cli_v22_wizard.png)
-
-![Pilo Masterkit CLI Result - v2.2](docs/assets/cli_v22_result.png)
+![Pilo Masterkit CLI Wizard - v2.3](docs/assets/cli_v22_wizard.png)
 
 ### 🚀 Quick Start
 
@@ -63,7 +62,7 @@ npx @heyai-rules/pilo-masterkit@latest --stack=typescript,python --ai=claude --l
 npx @heyai-rules/pilo-masterkit@latest --profile all
 ```
 
-_Note: You can also use `--profile all` for or `--stack <name> --ai <host>` for non-interactive setup._
+_Note: You can also use `--profile all` or `--stack <name> --ai <host>` for non-interactive setup._
 
 ### 🎮 Slash Commands
 
@@ -92,7 +91,7 @@ You have access to a rich set of built-in commands for your AI, powered by the *
 - `/clean` - Clear memory bloat and save context state.
 
 > [!IMPORTANT]
-> **View all commands**: Check out [**Slash Commands Wiki**](./SLASH_COMMANDS.md) or your project's auto-generated `PILO_WIKI.md`.
+> **View all commands**: Check out [**Slash Commands Wiki**](./SLASH_COMMANDS.md) or your project's auto-generated `PROJECT_MAP.md`.
 
 ---
 
@@ -100,16 +99,16 @@ You have access to a rich set of built-in commands for your AI, powered by the *
 
 ### 🎯 Mục đích dự án
 
-`Pilo Masterkit` biến một AI Coding Assistant thông thường thành **Đội ngũ Đặc nhiệm AI (AI Task Force)** có kỷ luật. Công cụ này thiết lập "não bộ" tập trung ngay tại môi trường phát triển của bạn.
+`Pilo Masterkit` biến một AI Coding Assistant thông thường thành **Đội ngũ Đặc nhiệm AI (AI Task Force)** có kỷ luật. Công cụ này thiết lập "não bộ" tập trung ngay tại môi trường phát triển của bạn, giải quyết triệt để bài toán tràn ngữ cảnh, áp đặt quy tắc phát triển nghiêm ngặt và tích hợp kho tài nguyên thiết kế UI/UX đỉnh cao.
 
-### ✨ Tính năng chính
+### ✨ Tính năng nổi bật trong v2.3.0
 
-- **Môi trường Làm việc Sạch**: Tự động khởi tạo cấu trúc thư mục sẵn sàng làm việc (Docs, Tasks, Plans...).
-- **Tệp Cấu hình Động**: Sinh ra file `GEMINI.md`, `CLAUDE.md` hoặc `AGENTS.md` bản địa hóa 100%.
-- **Giao diện CLI v2.2**: Trình hướng dẫn tương tác với 8 loại sản phẩm, nền tảng triển khai và trigger cá nhân hóa.
-- **Wiki Tự động**: `PILO_WIKI.md` được tạo tự động với các lệnh slash phù hợp Stack và Deploy của bạn.
-- **Nền tảng Triển khai**: Chọn Vercel, GitHub Pages, Docker hoặc Tùy chọn — Agent sẽ tối ưu hóa theo.
-- **Song ngữ 100%**: Toàn bộ CLI, AI hosts và tài liệu hỗ trợ Tiếng Anh và Tiếng Việt.
+- **Cấu trúc Docs Tinh gọn (3 thư mục lõi)**: Tạo cấu trúc siêu sạch gồm `docs/plans`, `docs/walkthroughs`, và `docs/system-designs`, giảm nhiễu ngữ cảnh tối đa để AI hoạt động chính xác.
+- **Bản đồ Dự án Động (`PROJECT_MAP.md`)**: Bản đồ điều phối tối thượng, đăng ký tất cả các tiêu chuẩn stack, deploy, các thiết kế tham khảo được lựa chọn và kỹ năng UI/UX Pro Max để AI nạp nhanh vào đầu phiên.
+- **Chuẩn hóa Luật AI (`cursor.mdc`)**: Đồng bộ hóa toàn bộ chỉ dẫn nạp ngữ cảnh, đổi tên tệp cấu hình Cursor thành `cursor.mdc` và tối ưu hóa templates chỉ dẫn cho Claude, Gemini, Copilot, Codex để tập trung tối đa vào `PROJECT_MAP.md`.
+- **Thư viện Kiến trúc Tham khảo Toàn cầu**: Tích hợp sẵn 71 mẫu thiết kế hệ thống hàng đầu thế giới (Notion, Stripe, Apple, SpaceX, Supabase...) ngoại tuyến, tự động sao chép vào `docs/system-designs/reference/` tùy theo lựa chọn của người dùng.
+- **Quyền năng UI/UX Pro Max**: Gói tài nguyên thiết kế siêu việt (tri thức 45KB, database CSV, scripts Python) offline 100%, sẵn sàng cài đặt vào `.agent/skills/ui-ux-pro-max/` để AI thiết kế những giao diện xuất sắc nhất.
+- **Bộ cài Wizard CLI Song ngữ**: Trình hướng dẫn tương tác trực quan (VI/EN) hỗ trợ cấu hình stack, quy mô, trigger cá nhân hóa và các tùy chọn tính năng nâng cao.
 
 ### 🚀 Hướng dẫn nhanh
 
@@ -153,7 +152,7 @@ _Lưu ý: Có thể sử dụng `--profile all` để cài đặt đầy đủ h
 - `/clean` - Dọn dẹp ngữ cảnh để tránh tràn bộ nhớ.
 
 > [!IMPORTANT]
-> **Toàn bộ hệ thống lệnh**: Xem [**Slash Commands Wiki**](./SLASH_COMMANDS.md) hoặc file `PILO_WIKI.md` được tạo tự động trong dự án.
+> **Toàn bộ hệ thống lệnh**: Xem [**Slash Commands Wiki**](./SLASH_COMMANDS.md) hoặc file `PROJECT_MAP.md` được tạo tự động trong dự án.
 
 ---
 
